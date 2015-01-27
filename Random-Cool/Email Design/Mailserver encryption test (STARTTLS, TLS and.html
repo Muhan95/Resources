@@ -1,0 +1,1139 @@
+<html>
+<head>
+  <title>Mailserver encryption test (STARTTLS, TLS and PFS) · SSL-Tools</title>
+  <basefont face="Tahoma" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/274061; Windows/6.1.7601 Service Pack 1;"/>
+  <style>
+    body, td {
+      font-family: Tahoma;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="432"/>
+<h1>Mailserver encryption test (STARTTLS, TLS and PFS) · SSL-Tools</h1>
+
+<div><div><br/><div style="font-size: 16px"><div style="box-sizing:border-box;font-family:sans-serif;font-size:10px;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);"><div style="box-sizing:border-box;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:1.428571429;color:rgb(51, 51, 51);background-color:white;"><div style="box-sizing:border-box;opacity:1;transition:all 80ms ease-out;-webkit-transition:all 80ms ease-out;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-style:solid solid solid none;border-top-color:rgb(255, 255, 255);border-right-color:rgb(255, 255, 255);border-bottom-color:rgb(255, 255, 255);border-top-left-radius:0px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:0px;-webkit-box-shadow:rgba(255, 255, 255, 0.247059) 1px 1px 1px inset, rgba(0, 0, 0, 0.498039) 0px 1px 2px;box-shadow:rgba(255, 255, 255, 0.247059) 1px 1px 1px inset, rgba(0, 0, 0, 0.498039) 0px 1px 2px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:1em;font-family:Arial, sans-serif;position:fixed;left:0px;top:50%;z-index:9999;margin-top:-101px;background:url('https://widget.uservoice.com/pkg/clients/widget2/tab-left-dark-e89fceb89af232658b40362993385936.png') 50% 0px no-repeat rgb(204, 109, 0);"><a href="#" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;background-color:transparent;display:block;padding:39px 5px 10px 5px;"><img src="Mailserver encryption test (STARTTLS, TLS and_files/feedback-tab.png" type="image/png" alt="Feedback & Support" height="151" style="box-sizing:border-box;border:0;vertical-align:middle;background-color:transparent;padding:0;margin:0;" width="20"/></a></div>
+<div style="box-sizing:border-box;display:block;margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;width:1170px;"><span style="display:table;"> </span>
+<div style="box-sizing:border-box;position:relative;min-height:50px;margin-bottom:20px;border:1px solid transparent;border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;border-color:rgb(231, 231, 231);background-color:rgb(248, 248, 248);-webkit-box-shadow:rgba(255, 255, 255, 0.14902) 0px 1px 0px inset, rgba(0, 0, 0, 0.0745098) 0px 1px 5px;box-shadow:rgba(255, 255, 255, 0.14902) 0px 1px 0px inset, rgba(0, 0, 0, 0.0745098) 0px 1px 5px;background-image:linear-gradient(rgb(255, 255, 255) 0%, rgb(248, 248, 248) 100%);background-repeat:repeat-x;"><span style="display:table;"> </span>
+<div style="box-sizing:border-box;float:left;"><span style="display:table;"> </span>
+
+<a href="https://ssl-tools.net/" style="box-sizing:border-box;background:transparent;color:rgb(119, 119, 119);text-decoration:none;float:left;padding:15px;font-size:18px;line-height:20px;height:50px;text-shadow:rgba(255, 255, 255, 0.247059) 0px 1px 0px;"><i style="box-sizing:border-box;display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;"><span style="font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;"></span></i>
+SSL-Tools
+</a><span style="display:table;clear:both;"> </span></div>
+<div style="box-sizing:border-box;display:block;overflow-x:visible;padding-right:15px;padding-left:15px;border-top-width:0px;border-top-style:solid;border-top-color:transparent;box-shadow:none;width:auto;padding-bottom:0px;height:auto;overflow:visible;border-color:rgb(231, 231, 231);"><span style="display:table;"> </span>
+<ul style="box-sizing:border-box;padding-left:0px;list-style:none;margin:0px;float:left;"><span style="list-style:none;display:table;"> </span>
+<li style="box-sizing:border-box;position:relative;display:block;float:left;"><a href="https://ssl-tools.net/mailservers" style="box-sizing:border-box;background:transparent;color:rgb(119, 119, 119);text-decoration:none;position:relative;display:block;padding:10px 15px;padding-top:15px;padding-bottom:15px;line-height:20px;text-shadow:rgba(255, 255, 255, 0.247059) 0px 1px 0px;">Mail servers test</a></li>
+<li style="box-sizing:border-box;position:relative;display:block;float:left;"><a href="https://ssl-tools.net/webservers" style="box-sizing:border-box;background:transparent;color:rgb(119, 119, 119);text-decoration:none;position:relative;display:block;padding:10px 15px;padding-top:15px;padding-bottom:15px;line-height:20px;text-shadow:rgba(255, 255, 255, 0.247059) 0px 1px 0px;">Web server test</a></li>
+<li style="box-sizing:border-box;position:relative;display:block;float:left;">
+<a href="https://ssl-tools.net/heartbleed-test" style="box-sizing:border-box;background:transparent;color:rgb(119, 119, 119);text-decoration:none;position:relative;display:block;padding:10px 15px;padding-top:15px;padding-bottom:15px;line-height:20px;text-shadow:rgba(255, 255, 255, 0.247059) 0px 1px 0px;"><img src="Mailserver encryption test (STARTTLS, TLS and_files/Image.png" type="image/png" alt="test" height="24" style="box-sizing:border-box;border:0px;vertical-align:middle;max-width:none;height:24px;margin:-2px 0px;" width="20"/>
+Heartbleed
+</a></li>
+<li style="box-sizing:border-box;position:relative;display:block;float:left;"><a href="https://ssl-tools.net/providers" style="box-sizing:border-box;background:transparent;color:rgb(119, 119, 119);text-decoration:none;position:relative;display:block;padding:10px 15px;padding-top:15px;padding-bottom:15px;line-height:20px;text-shadow:rgba(255, 255, 255, 0.247059) 0px 1px 0px;">Email providers</a></li>
+<li style="box-sizing:border-box;position:relative;display:block;float:left;">
+<a href="https://ssl-tools.net/mailservers#" style="box-sizing:border-box;background:transparent;color:rgb(119, 119, 119);text-decoration:none;position:relative;display:block;padding:10px 15px;padding-top:15px;padding-bottom:15px;line-height:20px;text-shadow:rgba(255, 255, 255, 0.247059) 0px 1px 0px;">
+Tools
+<b style="box-sizing:border-box;font-weight:bold;display:inline-block;width:0px;height:0px;margin-left:2px;vertical-align:middle;border-top-width:4px;border-top-style:solid;border-right-width:4px;border-right-style:solid;border-right-color:transparent;border-left-width:4px;border-left-style:solid;border-left-color:transparent;"></b>
+</a>
+
+</li>
+<span style="list-style:none;display:table;clear:both;"> </span></ul>
+<ul style="box-sizing:border-box;padding-left:0px;list-style:none;margin:0px;float:right;margin-right:-15px;"><span style="list-style:none;display:table;"> </span>
+<li style="box-sizing:border-box;position:relative;display:block;float:left;"><a href="https://ssl-tools.net/users/sign_up" style="box-sizing:border-box;background:transparent;color:rgb(119, 119, 119);text-decoration:none;position:relative;display:block;padding:10px 15px;padding-top:15px;padding-bottom:15px;line-height:20px;text-shadow:rgba(255, 255, 255, 0.247059) 0px 1px 0px;">Sign Up</a></li>
+<li style="box-sizing:border-box;position:relative;display:block;float:left;"><a href="https://ssl-tools.net/users/sign_in" style="box-sizing:border-box;background:transparent;color:rgb(119, 119, 119);text-decoration:none;position:relative;display:block;padding:10px 15px;padding-top:15px;padding-bottom:15px;line-height:20px;text-shadow:rgba(255, 255, 255, 0.247059) 0px 1px 0px;">Log in</a></li>
+<span style="list-style:none;display:table;clear:both;"> </span></ul>
+
+<span style="display:table;clear:both;"> </span></div>
+<span style="display:table;clear:both;"> </span></div>
+<span style="display:table;clear:both;"> </span></div>
+
+<div style="box-sizing:border-box;margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;width:1170px;"><span style="display:table;"> </span>
+
+
+<h1 style="box-sizing:border-box;font-size:36px;margin:40px 0px 20px;font-family:inherit;font-weight:500;line-height:1.1;color:inherit;padding-bottom:9px;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(238, 238, 238);">Check your mail servers encryption</h1>
+<p style="box-sizing:border-box;margin:0px 0px 10px;margin-bottom:20px;font-size:21px;font-weight:300;line-height:1.4;">Enter dem domain part (after the @) of any mail address to discover if its incoming mailservers
+support <strong style="box-sizing:border-box;font-weight:bold;">STARTTLS</strong>, offer a trustworthy <strong style="box-sizing:border-box;font-weight:bold;">SSL certificate</strong>
+and Perfect Forward Secrecy and test their vulnerability to <strong style="box-sizing:border-box;font-weight:bold;">Heartbleed</strong>.
+</p>
+<div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;"><span style="display:table;"> </span>
+<div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:50%;margin-left:25%;">
+<div style="box-sizing:border-box;min-height:20px;padding:24px;margin-bottom:20px;border:1px solid rgb(227, 227, 227);border-top-left-radius:6px;border-top-right-radius:6px;border-bottom-right-radius:6px;border-bottom-left-radius:6px;-webkit-box-shadow:rgba(0, 0, 0, 0.0470588) 0px 1px 3px inset, rgba(255, 255, 255, 0.0980392) 0px 1px 0px;box-shadow:rgba(0, 0, 0, 0.0470588) 0px 1px 3px inset, rgba(255, 255, 255, 0.0980392) 0px 1px 0px;background-color:rgb(245, 245, 245);border-color:rgb(220, 220, 220);background-image:linear-gradient(rgb(232, 232, 232) 0%, rgb(245, 245, 245) 100%);background-repeat:repeat-x;">
+<p style="box-sizing:border-box;margin:0px 0px 10px;margin-top:0px;">
+examples:
+<code style="box-sizing:border-box;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:90%;padding:2px 4px;color:rgb(199, 37, 78);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(249, 242, 244);margin-top:0px;">gmx.de</code>, 
+<code style="box-sizing:border-box;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:90%;padding:2px 4px;color:rgb(199, 37, 78);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(249, 242, 244);">web.de</code>, 
+<code style="box-sizing:border-box;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:90%;padding:2px 4px;color:rgb(199, 37, 78);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(249, 242, 244);">gmail.com</code>, 
+<code style="box-sizing:border-box;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:90%;padding:2px 4px;color:rgb(199, 37, 78);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(249, 242, 244);">yahoo.com</code>, 
+<code style="box-sizing:border-box;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:90%;padding:2px 4px;color:rgb(199, 37, 78);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(249, 242, 244);margin-bottom:0px;">hotmail.com</code>
+</p>
+
+<div style="box-sizing:border-box;"><div style="box-sizing:border-box;position:relative;display:table;border-collapse:separate;margin-bottom:0px;">
+<span style="box-sizing:border-box;display:table-cell;max-width:100%;margin-bottom:5px;font-weight:normal;width:1%;white-space:nowrap;vertical-align:middle;padding:6px 12px;font-size:14px;line-height:1;color:rgb(85, 85, 85);text-align:center;border:1px solid rgb(204, 204, 204);border-top-left-radius:4px;border-top-right-radius:0px;border-bottom-right-radius:0px;border-bottom-left-radius:4px;background-color:rgb(238, 238, 238);border-right-width:0px;margin-top:0px;">@</span>
+
+<span style="box-sizing:border-box;display:table-cell;width:1%;white-space:nowrap;vertical-align:middle;position:relative;font-size:0px;margin-bottom:0px;">
+
+</span>
+</div>
+</div>
+
+
+<hr style="box-sizing:content-box;height:0px;margin-top:12px;margin-bottom:12px;border-width:1px 0px 0px;border-top-style:solid;border-top-color:rgb(238, 238, 238);"/>
+<p style="box-sizing:border-box;margin:0px 0px 10px;margin-bottom:0px;">
+<span style="box-sizing:border-box;display:inline;padding:0.2em 0.6em 0.3em;font-size:75%;font-weight:bold;line-height:1;color:white;text-align:center;white-space:nowrap;vertical-align:baseline;border-top-left-radius:0.25em;border-top-right-radius:0.25em;border-bottom-right-radius:0.25em;border-bottom-left-radius:0.25em;background-color:rgb(92, 184, 92);margin-top:0px;">NEW</span>
+You can also
+<a href="https://ssl-tools.net/users/checks/new" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;margin-bottom:0px;">bulk check multiple servers</a>.
+</p>
+
+</div>
+</div>
+<span style="display:table;clear:both;"> </span></div>
+
+<h2 style="box-sizing:border-box;font-family:inherit;font-weight:500;line-height:1.1;color:inherit;margin-top:1em;margin-bottom:10px;font-size:30px;">Recent tests</h2>
+<div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;"><span style="display:table;"> </span>
+<div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:50%;">
+<h3 style="box-sizing:border-box;font-family:inherit;font-weight:500;line-height:1.1;color:inherit;margin-top:20px;margin-bottom:10px;font-size:24px;">Secure mail servers</h3>
+<ul style="box-sizing:border-box;margin-top:0px;margin-bottom:10px;padding-left:0px;margin-left:2.14285714em;list-style-type:none;">
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/jbmail.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">jbmail.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">7 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/nomorecode.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">nomorecode.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">7 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/psiphon3.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">psiphon3.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">7 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/eevol.lu" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">eevol.lu</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">8 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/gregjoy.co.uk" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">gregjoy.co.uk</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">8 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/mbx.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">mbx.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">9 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/mail.peopledatasystems.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">mail.peopledatasystems.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">9 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/bumph.org" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">bumph.org</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">9 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/finn.io" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">finn.io</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">9 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/wasd.ch" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">wasd.ch</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">10 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/mail.nih.gov" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">mail.nih.gov</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">10 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/cilfone.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">cilfone.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">11 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/gerbaulethh.de" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">gerbaulethh.de</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">11 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/charlesconnell.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">charlesconnell.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">11 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/smtp.pobox.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">smtp.pobox.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">11 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/bdwalter.net" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">bdwalter.net</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">12 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/folkes.me" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">folkes.me</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">13 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/cs.unc.edu" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">cs.unc.edu</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">13 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/cygrp.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">cygrp.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">14 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(60, 118, 61);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(60, 118, 61);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/draganddrop.co.uk" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">draganddrop.co.uk</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">14 minutes ago</span></small>
+</li>
+</ul>
+</div>
+<div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:50%;">
+<h3 style="box-sizing:border-box;font-family:inherit;font-weight:500;line-height:1.1;color:inherit;margin-top:20px;margin-bottom:10px;font-size:24px;">Insecure mail servers</h3>
+<ul style="box-sizing:border-box;margin-top:0px;margin-bottom:10px;padding-left:0px;margin-left:2.14285714em;list-style-type:none;">
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/codeandconquer.co" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">codeandconquer.co</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">6 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/otland.net" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">otland.net</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">7 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/mx2.justdev.ca" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">mx2.justdev.ca</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">9 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/rubyonrailsapps.nl" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">rubyonrailsapps.nl</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">9 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/iozz.us" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">iozz.us</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">10 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/iodev.org" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">iodev.org</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">10 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/grownupsreadthingstheywroteaskids.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">grownupsreadthingstheywroteaskids.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">10 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/hostingbrothers.nl" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">hostingbrothers.nl</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">11 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/misener.org" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">misener.org</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">11 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/hchb.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">hchb.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">11 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/agurkas.serveriai.lt" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">agurkas.serveriai.lt</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">11 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/indeedgeek.de" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">indeedgeek.de</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">12 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/jonaslasauskas.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">jonaslasauskas.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">12 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/swapped.cc" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">swapped.cc</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">12 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/tarnbarford.net" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">tarnbarford.net</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">12 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/mail.craigsmith.net" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">mail.craigsmith.net</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">12 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/ecliente.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">ecliente.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">13 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/gillesperez.net" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">gillesperez.net</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">13 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/canelasoftware.com" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">canelasoftware.com</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">14 minutes ago</span></small>
+</li>
+<li style="box-sizing:border-box;position:relative;">
+<i style="box-sizing:border-box;color:rgb(169, 68, 66);display:inline-block;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;position:absolute;left:-2.14285714em;width:2.14285714em;top:0.14285714em;text-align:center;"><span style="color:rgb(169, 68, 66);font-style:normal;font-variant:normal;font-weight:normal;line-height:1;font-family:FontAwesome;font-size:inherit;text-align:center;"></span></i>
+<a href="https://ssl-tools.net/mailservers/utzcertified.org" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">utzcertified.org</a>
+<small style="box-sizing:border-box;font-size:85%;"><span style="box-sizing:border-box;" title="">14 minutes ago</span></small>
+</li>
+</ul>
+</div>
+<span style="display:table;clear:both;"> </span></div>
+
+<div style="box-sizing:border-box;"><div style="box-sizing:border-box;width:100%px;border:none !important;overflow:hidden !important;height:829px !important;position:relative;"><div style="font-size: 16px"><div dir="ltr" lang="en" style="box-sizing:border-box;overflow:hidden;overflow-y:scroll;font-size:100%;">
+<div style="box-sizing:border-box;margin:0px;padding:0px;line-height:20px;color:rgb(63, 69, 73);font-family:'Helvetica Neue', arial, sans-serif;font-size:15px;-webkit-font-smoothing:antialiased;background:0px 0px;">
+    
+    
+
+
+    
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    <div style="box-sizing:border-box;"></div>
+
+    
+
+
+<div style="box-sizing:border-box;overflow:hidden;">
+
+<div style="box-sizing:border-box;"></div>
+
+<div style="box-sizing:border-box;"></div>
+
+
+
+<div style="box-sizing:border-box;display:block;">
+
+<div style="box-sizing:border-box;display:block;position:relative;margin:0px 0px 24px;padding:0px;border-bottom-width:2px;border-bottom-style:solid;border-color:rgba(0, 39, 59, 0.0784314);"><span style="display:table;line-height:0;"></span>
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;clear:both;"><span style="font-weight:400;font-style:normal;font-size:100%;line-height:0;font-family:inherit;list-style:none;display:table;"></span>
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;">
+
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px 15px;padding:12px 0px;border:0px;font-weight:700;font-style:normal;font-size:15px;line-height:1;font-family:inherit;text-decoration:none;color:rgb(63, 69, 73);transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;display:block;position:relative;margin-left:0px;text-transform:capitalize;">
+
+<span style="box-sizing:border-box;">
+
+4 comments
+
+</span>
+
+
+
+<span style="font-weight:700;font-style:normal;font-size:15px;line-height:1;font-family:inherit;color:rgb(63, 69, 73);text-transform:capitalize;display:block;right:0px;height:2px;position:absolute;bottom:-2px;left:0px;background:rgb(46, 159, 255);"> </span></a>
+</li>
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;">
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px 15px;padding:12px 0px;border:0px;font-weight:700;font-style:normal;font-size:15px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.34902);transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;display:block;position:relative;">
+
+
+<span style="box-sizing:border-box;">
+
+<strong style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:100%;line-height:1;font-family:inherit;">SSL-Tools</strong>
+
+</span>
+
+
+
+</a>
+</li>
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;position:relative;float:right;margin-left:6px;">
+
+
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:12px 0px;border:0px;font-weight:700;font-style:normal;font-size:15px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.34902);transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;display:block;position:relative;padding-right:14px;background:0px 0px;max-width:160px;height:33px;overflow:hidden;text-overflow:ellipsis;">
+<span style="box-sizing:border-box;white-space:nowrap;"><span style="white-space:nowrap;"></span>
+
+
+<span style="box-sizing:border-box;">
+Login
+</span>
+
+
+</span> <span style="box-sizing:border-box;display:block;width:0px;height:0px;text-indent:-99999px;vertical-align:top;border-left-width:4px;border-left-style:solid;border-left-color:transparent;border-right-width:4px;border-right-style:solid;border-right-color:transparent;border-top-width:4px;border-top-style:solid;border-top-color:rgb(0, 0, 0);opacity:0.3;content:'↓';position:absolute;right:0px;top:18px;margin:0px;transition:all 0.2s;-webkit-transition:all 0.2s;"></span>
+</a>
+
+
+</li>
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:right;margin-top:11px;width:19px;">
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:12px 0px;border:0px;font-weight:700;font-style:normal;font-size:15px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.34902);transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;display:block;position:relative;top:-1px;">
+<span style="box-sizing:border-box;position:absolute;top:0px;left:0px;font-size:19px;transition:color 0.1s;-webkit-transition:color 0.1s;"><span style="font-size:19px;font-family:icons;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;"></span></span>
+<span style="box-sizing:border-box;position:absolute;top:4px;left:0px;width:20px;color:rgb(255, 255, 255);font-size:10px;font-weight:700;text-align:center;"></span>
+<span style="font-weight:700;font-style:normal;font-size:15px;line-height:1;font-family:inherit;color:rgba(0, 39, 59, 0.34902);display:none;"></span></a>
+</li>
+<span style="font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;display:table;clear:both;"></span></ul>
+<span style="display:table;line-height:0;clear:both;"></span></div>
+
+</div>
+
+
+
+
+<div style="box-sizing:border-box;display:block;min-height:125px;">
+
+<div style="box-sizing:border-box;position:relative;margin:-12px 0px 24px;padding:0px;">
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;clear:both;"><span style="font-weight:400;font-style:normal;font-size:100%;line-height:0;font-family:inherit;list-style:none;display:table;"></span>
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;position:relative;float:left;">
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:13px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.34902);transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;display:block;position:relative;width:auto;padding-right:12px;background:0px 0px;">
+Sort by Best
+
+
+<span style="box-sizing:border-box;display:block;width:0px;height:0px;text-indent:-99999px;vertical-align:top;border-left-width:4px;border-left-style:solid;border-left-color:transparent;border-right-width:4px;border-right-style:solid;border-right-color:transparent;border-top-width:4px;border-top-style:solid;border-top-color:rgb(0, 0, 0);opacity:0.3;content:'↓';top:5px;right:0px;position:absolute;margin:0px;transition:all 0.2s;-webkit-transition:all 0.2s;"></span>
+</a>
+
+</li>
+
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:right;">
+
+<div style="box-sizing:border-box;">
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:13px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.34902);transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;width:auto;display:block;position:relative;z-index:100;margin-right:0px;" title="Favorite this discussion">
+<span style="box-sizing:border-box;">Favorite</span>
+<span style="box-sizing:border-box;"><span style="font-family:icons;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:0;-webkit-font-smoothing:antialiased;position:relative;top:0.15em;font-size:14px;">★</span></span>
+<span style="box-sizing:border-box;"><span style="font-family:icons;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:0;-webkit-font-smoothing:antialiased;position:relative;top:0.25em;font-size:19px;"></span></span>
+</a>
+</div></li>
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;position:relative;float:right;">
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:13px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.34902);transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;display:block;position:relative;width:auto;padding-right:12px;background:0px 0px;" title="Share">
+<span style="box-sizing:border-box;">Share</span> <span style="box-sizing:border-box;"><span style="font-family:icons;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:0;-webkit-font-smoothing:antialiased;position:relative;top:0.25em;font-size:19px;">⤤</span></span>
+</a>
+
+</li>
+<span style="font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;display:table;clear:both;"></span></ul>
+</div>
+
+
+<div style="box-sizing:border-box;">
+
+<div style="box-sizing:border-box;"><div style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;">
+
+<div style="box-sizing:border-box;position:relative;margin:0px 0px 24px;">
+<div style="box-sizing:border-box;"></div>
+<div style="box-sizing:border-box;float:left;position:absolute;left:0px;transition:left 0.2s linear;-webkit-transition:left 0.2s linear;">
+
+<span style="box-sizing:border-box;display:block;position:relative;z-index:100;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;background:rgba(0, 39, 59, 0.2);">
+<img src="Mailserver encryption test (STARTTLS, TLS and_files/noavatar92.d1dee965677e7cc8d58afe004a6d8282.png" type="image/png" alt="Avatar" height="48" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;display:block;width:48px;height:48px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;" width="48"/>
+</span>
+
+</div>
+
+<div dir="auto" style="box-sizing:border-box;position:relative;margin:0px 0px 0px 60px;-webkit-appearance:none;border:2px solid rgba(0, 39, 59, 0.2);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background:rgb(255, 255, 255);"><span style="display:table;line-height:0;"></span><div style="box-sizing:border-box;"><span style="box-sizing:border-box;color:rgba(0, 39, 59, 0.34902);line-height:30px;font-size:18px;position:absolute;top:7px;left:10px;right:9px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;cursor:text;">Join the discussion…</span><div style="box-sizing:border-box;color:rgb(63, 69, 73);cursor:text;resize:none;border:0px;display:block;padding:6px 10px 8px;margin:0px;width:100%;min-height:44px;height:auto;line-height:1.4;font-size:14px;font-family:'Helvetica Neue', arial, sans-serif;overflow-y:scroll;transition:all 0.15s ease-in-out;-webkit-transition:all 0.15s ease-in-out;overflow:auto;max-height:350px;"><p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1.4;font-family:inherit;"><br style="box-sizing:border-box;"/></p></div></div>
+
+
+
+
+<div style="box-sizing:border-box;"></div>
+<div style="box-sizing:border-box;visibility:hidden;opacity:0;border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-right-radius:2px;border-bottom-left-radius:2px;border-top-style:solid;border-top-width:2px;border-color:rgba(0, 39, 59, 0.2);position:absolute;bottom:0px;left:0px;right:0px;height:36px;background:rgb(246, 248, 249);transition:opacity 0.2s linear;-webkit-transition:opacity 0.2s linear;">
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;position:absolute;top:2px;left:2px;">
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;position:relative;">
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgb(40, 140, 228);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;display:block;height:30px;width:34px;position:relative;" title="Upload Images"><span style="box-sizing:border-box;display:block;position:absolute;top:9px;left:10px;text-indent:-9999em;opacity:0.65;width:14px;height:14px;background-image:url(https://a.disquscdn.com//a.disquscdn.com/next/assets/img/sprite.8f00ae117e1b25b3c5017ee98ae5731a.png);background-position:0px -32px;transition:opacity 0.1s linear;-webkit-transition:opacity 0.1s linear;">Attach</span></a>
+
+</li>
+
+</ul>
+
+
+</div>
+<span style="display:table;line-height:0;clear:both;"></span></div>
+
+<div style="box-sizing:border-box;"><div style="box-sizing:border-box;">
+
+
+
+
+
+
+</div></div>
+</div>
+</div></div>
+
+
+
+
+
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;list-style-type:none;"><li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;"><span style="font-weight:400;font-style:normal;font-size:100%;line-height:0;font-family:inherit;display:table;"></span>
+<div style="box-sizing:border-box;"></div>
+
+<div style="box-sizing:border-box;position:relative;margin-bottom:24px;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;"><span style="display:table;line-height:0;"></span>
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;position:absolute;opacity:0;visibility:hidden;top:3px;right:0px;"><span style="font-weight:400;font-style:normal;font-size:100%;line-height:0;font-family:inherit;list-style:none;visibility:hidden;display:table;"></span>
+<li style="box-sizing:border-box;margin:0px 0px 0px 8px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;">
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:10px 0px 10px 10px;border:0px;font-weight:400;font-style:normal;font-size:20px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 0, 0, 0.498039);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;opacity:0.6;position:relative;top:-6px;" title="Collapse"><span style="box-sizing:border-box;">−</span></a>
+</li>
+
+
+
+<li style="box-sizing:border-box;margin:0px 0px 0px 8px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;">
+
+
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 0, 0, 0.498039);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;border-left-width:2px;border-left-style:solid;border-color:rgba(0, 39, 59, 0.0784314);padding-left:5px;" title="Flag as inappropriate">
+<i style="box-sizing:border-box;"><span style="font-family:icons;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;">⚑</span></i>
+</a>
+
+
+</li>
+
+<span style="font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;visibility:hidden;display:table;clear:both;"></span></ul>
+
+<div style="box-sizing:border-box;position:absolute;top:0px;left:0px;width:5px;height:48px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;"></div>
+
+
+
+
+<div style="box-sizing:border-box;float:left;margin-right:12px;">
+
+<div style="box-sizing:border-box;display:block;position:relative;z-index:100;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;background:rgba(0, 39, 59, 0.2);"><img src="Mailserver encryption test (STARTTLS, TLS and_files/noavatar92.png" type="image/png" alt="Avatar" height="48" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;display:block;width:48px;height:48px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;position:relative;z-index:100;background:rgba(0, 39, 59, 0.2);" width="48"/></div>
+</div>
+
+
+<div style="box-sizing:border-box;overflow:hidden;">
+<div style="box-sizing:border-box;display:block;color:rgb(119, 119, 119);line-height:1;font-size:13px;padding-right:46px;margin-bottom:3px;">
+<span style="box-sizing:border-box;">
+
+<span style="box-sizing:border-box;font-weight:700;">Max</span>
+
+
+
+</span>
+
+<span style="box-sizing:border-box;display:inline-block;">
+<span style="box-sizing:border-box;padding:0px 4px;font-size:75%;color:rgb(204, 204, 204);line-height:1.4;">•</span>
+
+
+<a href="https://ssl-tools.net/mailservers#comment-1597573808" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:12px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.34902);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;" title="Saturday, September 20, 2014 10:55 AM">
+6 days ago
+</a>
+
+</span>
+
+
+</div>
+
+
+<div style="box-sizing:border-box;">
+
+<div style="box-sizing:border-box;position:relative;overflow:hidden;zoom:1;width:100%;">
+
+<div style="box-sizing:border-box;">
+<div dir="auto" style="box-sizing:border-box;line-height:21px;"><span style="line-height:0;display:table;"></span>
+
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:21px;font-family:inherit;">Kann mal wer die CACert-Stammzertifikate importieren?<br style="box-sizing:border-box;"/>Denen traue ich eher über den Weg als Thawte, Geotrust, Verisign... die ja am Ende auch alle irgendwie zusammengehören.</p>
+
+<span style="line-height:21px;display:table;clear:both;"></span></div>
+
+<span style="box-sizing:border-box;"><ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;"></ul></span>
+</div>
+</div>
+
+</div>
+
+<div style="box-sizing:border-box;display:block;clear:both;color:rgba(29, 47, 58, 0.6);margin:4px 0px 0px;">
+
+
+
+</div>
+</div>
+
+
+<div style="box-sizing:border-box;"></div>
+<div style="box-sizing:border-box;"></div>
+<span style="display:table;line-height:0;clear:both;"></span></div>
+
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;"></ul>
+
+
+<span style="font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;display:table;clear:both;"></span></li><li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;"><span style="font-weight:400;font-style:normal;font-size:100%;line-height:0;font-family:inherit;display:table;"></span>
+<div style="box-sizing:border-box;"></div>
+
+<div style="box-sizing:border-box;position:relative;margin-bottom:24px;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;"><span style="display:table;line-height:0;"></span>
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;position:absolute;opacity:0;visibility:hidden;top:3px;right:0px;"><span style="font-weight:400;font-style:normal;font-size:100%;line-height:0;font-family:inherit;list-style:none;visibility:hidden;display:table;"></span>
+<li style="box-sizing:border-box;margin:0px 0px 0px 8px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;">
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:10px 0px 10px 10px;border:0px;font-weight:400;font-style:normal;font-size:20px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 0, 0, 0.498039);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;opacity:0.6;position:relative;top:-6px;" title="Collapse"><span style="box-sizing:border-box;">−</span></a>
+</li>
+
+
+
+<li style="box-sizing:border-box;margin:0px 0px 0px 8px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;">
+
+
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 0, 0, 0.498039);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;border-left-width:2px;border-left-style:solid;border-color:rgba(0, 39, 59, 0.0784314);padding-left:5px;" title="Flag as inappropriate">
+<i style="box-sizing:border-box;"><span style="font-family:icons;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;">⚑</span></i>
+</a>
+
+
+</li>
+
+<span style="font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;visibility:hidden;display:table;clear:both;"></span></ul>
+
+<div style="box-sizing:border-box;position:absolute;top:0px;left:0px;width:5px;height:48px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;"></div>
+
+
+
+
+<div style="box-sizing:border-box;float:left;margin-right:12px;">
+<a href="http://disqus.com/disqus_ZB0WKvntgW/" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgb(40, 140, 228);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;display:block;position:relative;z-index:100;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;background:rgba(0, 39, 59, 0.2);">
+<img src="Mailserver encryption test (STARTTLS, TLS and_files/avatar92.jpg" type="image/jpeg" alt="Avatar" height="48" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;display:block;width:48px;height:48px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;" width="48"/>
+</a>
+</div>
+
+
+<div style="box-sizing:border-box;overflow:hidden;">
+<div style="box-sizing:border-box;display:block;color:rgb(119, 119, 119);line-height:1;font-size:13px;padding-right:46px;margin-bottom:3px;">
+<span style="box-sizing:border-box;">
+
+<span style="box-sizing:border-box;font-weight:700;"><a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgb(66, 139, 202);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;">Corny</a></span>
+
+
+<span style="box-sizing:border-box;color:rgb(255, 255, 255);padding:1px 3px;font-size:10px;line-height:1.1;font-weight:700;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;display:inline-block;position:relative;top:-1px;left:1px;background:rgba(34, 59, 74, 0.298039);">Mod</span>
+
+
+
+
+
+</span>
+
+<span style="box-sizing:border-box;display:inline-block;">
+<span style="box-sizing:border-box;padding:0px 4px;font-size:75%;color:rgb(204, 204, 204);line-height:1.4;">•</span>
+
+
+<a href="https://ssl-tools.net/mailservers#comment-1324885044" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:12px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.34902);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;" title="Tuesday, April 8, 2014 11:29 PM">
+6 months ago
+</a>
+
+</span>
+
+
+</div>
+
+
+<div style="box-sizing:border-box;">
+
+<div style="box-sizing:border-box;position:relative;overflow:hidden;zoom:1;width:100%;">
+
+<div style="box-sizing:border-box;">
+<div dir="auto" style="box-sizing:border-box;line-height:21px;"><span style="line-height:0;display:table;"></span>
+
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:21px;font-family:inherit;">Ab sofort wird getestet, ob die TLS-Verbindung anfällig für Heartbleed-Angriffe ist.</p>
+
+<span style="line-height:21px;display:table;clear:both;"></span></div>
+
+<span style="box-sizing:border-box;"><ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;"></ul></span>
+</div>
+</div>
+
+</div>
+
+<div style="box-sizing:border-box;display:block;clear:both;color:rgba(29, 47, 58, 0.6);margin:4px 0px 0px;">
+
+
+
+</div>
+</div>
+
+
+<div style="box-sizing:border-box;"></div>
+<div style="box-sizing:border-box;"></div>
+<span style="display:table;line-height:0;clear:both;"></span></div>
+
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;"></ul>
+
+
+<span style="font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;display:table;clear:both;"></span></li><li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;"><span style="font-weight:400;font-style:normal;font-size:100%;line-height:0;font-family:inherit;display:table;"></span>
+<div style="box-sizing:border-box;"></div>
+
+<div style="box-sizing:border-box;position:relative;margin-bottom:24px;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;"><span style="display:table;line-height:0;"></span>
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;position:absolute;opacity:0;visibility:hidden;top:3px;right:0px;"><span style="font-weight:400;font-style:normal;font-size:100%;line-height:0;font-family:inherit;list-style:none;visibility:hidden;display:table;"></span>
+<li style="box-sizing:border-box;margin:0px 0px 0px 8px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;">
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:10px 0px 10px 10px;border:0px;font-weight:400;font-style:normal;font-size:20px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 0, 0, 0.498039);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;opacity:0.6;position:relative;top:-6px;" title="Collapse"><span style="box-sizing:border-box;">−</span></a>
+</li>
+
+
+
+<li style="box-sizing:border-box;margin:0px 0px 0px 8px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;">
+
+
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 0, 0, 0.498039);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;border-left-width:2px;border-left-style:solid;border-color:rgba(0, 39, 59, 0.0784314);padding-left:5px;" title="Flag as inappropriate">
+<i style="box-sizing:border-box;"><span style="font-family:icons;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;">⚑</span></i>
+</a>
+
+
+</li>
+
+<span style="font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;visibility:hidden;display:table;clear:both;"></span></ul>
+
+<div style="box-sizing:border-box;position:absolute;top:0px;left:0px;width:5px;height:48px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;"></div>
+
+
+
+
+<div style="box-sizing:border-box;float:left;margin-right:12px;">
+<a href="http://disqus.com/lovemyweb/" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgb(40, 140, 228);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;display:block;position:relative;z-index:100;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;background:rgba(0, 39, 59, 0.2);">
+<img src="Mailserver encryption test (STARTTLS, TLS and_files/avatar92 [1].jpg" type="image/jpeg" alt="Avatar" height="48" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;display:block;width:48px;height:48px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;" width="48"/>
+</a>
+</div>
+
+
+<div style="box-sizing:border-box;overflow:hidden;">
+<div style="box-sizing:border-box;display:block;color:rgb(119, 119, 119);line-height:1;font-size:13px;padding-right:46px;margin-bottom:3px;">
+<span style="box-sizing:border-box;">
+
+<span style="box-sizing:border-box;font-weight:700;"><a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgb(66, 139, 202);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;">Lovemyweb.net</a></span>
+
+
+
+
+
+
+</span>
+
+<span style="box-sizing:border-box;display:inline-block;">
+<span style="box-sizing:border-box;padding:0px 4px;font-size:75%;color:rgb(204, 204, 204);line-height:1.4;">•</span>
+
+
+<a href="https://ssl-tools.net/mailservers#comment-1480769190" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:12px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.34902);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;" title="Friday, July 11, 2014 6:47 PM">
+2 months ago
+</a>
+
+</span>
+
+
+</div>
+
+
+<div style="box-sizing:border-box;">
+
+<div style="box-sizing:border-box;position:relative;overflow:hidden;zoom:1;width:100%;">
+
+<div style="box-sizing:border-box;">
+<div dir="auto" style="box-sizing:border-box;line-height:21px;"><span style="line-height:0;display:table;"></span>
+
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:21px;font-family:inherit;">great website! thank you for sharing amazing tools :)</p>
+
+<span style="line-height:21px;display:table;clear:both;"></span></div>
+
+<span style="box-sizing:border-box;"><ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;"></ul></span>
+</div>
+</div>
+
+</div>
+
+<div style="box-sizing:border-box;display:block;clear:both;color:rgba(29, 47, 58, 0.6);margin:4px 0px 0px;">
+
+
+
+</div>
+</div>
+
+
+<div style="box-sizing:border-box;"></div>
+<div style="box-sizing:border-box;"></div>
+<span style="display:table;line-height:0;clear:both;"></span></div>
+
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;"></ul>
+
+
+<span style="font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;display:table;clear:both;"></span></li><li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;"><span style="font-weight:400;font-style:normal;font-size:100%;line-height:0;font-family:inherit;display:table;"></span>
+<div style="box-sizing:border-box;"></div>
+
+<div style="box-sizing:border-box;position:relative;margin-bottom:24px;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;"><span style="display:table;line-height:0;"></span>
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;position:absolute;opacity:0;visibility:hidden;top:3px;right:0px;"><span style="font-weight:400;font-style:normal;font-size:100%;line-height:0;font-family:inherit;list-style:none;visibility:hidden;display:table;"></span>
+<li style="box-sizing:border-box;margin:0px 0px 0px 8px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;">
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:10px 0px 10px 10px;border:0px;font-weight:400;font-style:normal;font-size:20px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 0, 0, 0.498039);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;opacity:0.6;position:relative;top:-6px;" title="Collapse"><span style="box-sizing:border-box;">−</span></a>
+</li>
+
+
+
+<li style="box-sizing:border-box;margin:0px 0px 0px 8px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;">
+
+
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 0, 0, 0.498039);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;border-left-width:2px;border-left-style:solid;border-color:rgba(0, 39, 59, 0.0784314);padding-left:5px;" title="Flag as inappropriate">
+<i style="box-sizing:border-box;"><span style="font-family:icons;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;">⚑</span></i>
+</a>
+
+
+</li>
+
+<span style="font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;visibility:hidden;display:table;clear:both;"></span></ul>
+
+<div style="box-sizing:border-box;position:absolute;top:0px;left:0px;width:5px;height:48px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;"></div>
+
+
+
+
+<div style="box-sizing:border-box;float:left;margin-right:12px;">
+
+<div style="box-sizing:border-box;display:block;position:relative;z-index:100;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;background:rgba(0, 39, 59, 0.2);"><img src="Mailserver encryption test (STARTTLS, TLS and_files/noavatar92 [1].png" type="image/png" alt="Avatar" height="48" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;display:block;width:48px;height:48px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;position:relative;z-index:100;background:rgba(0, 39, 59, 0.2);" width="48"/></div>
+</div>
+
+
+<div style="box-sizing:border-box;overflow:hidden;">
+<div style="box-sizing:border-box;display:block;color:rgb(119, 119, 119);line-height:1;font-size:13px;padding-right:46px;margin-bottom:3px;">
+<span style="box-sizing:border-box;">
+
+<span style="box-sizing:border-box;font-weight:700;">Gast</span>
+
+
+
+</span>
+
+<span style="box-sizing:border-box;display:inline-block;">
+<span style="box-sizing:border-box;padding:0px 4px;font-size:75%;color:rgb(204, 204, 204);line-height:1.4;">•</span>
+
+
+<a href="https://ssl-tools.net/mailservers#comment-1305943573" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:12px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.34902);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;" title="Thursday, March 27, 2014 1:07 PM">
+6 months ago
+</a>
+
+</span>
+
+
+</div>
+
+
+<div style="box-sizing:border-box;">
+
+<div style="box-sizing:border-box;position:relative;overflow:hidden;zoom:1;width:100%;">
+
+<div style="box-sizing:border-box;">
+<div dir="auto" style="box-sizing:border-box;line-height:21px;"><span style="line-height:0;display:table;"></span>
+
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:21px;font-family:inherit;"><a href="http://posteo.de/" rel="nofollow" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgb(66, 139, 202);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;">Posteo.de</a> ist heute (27.3.2014) total sicher! Ist nämlich nicht erreichbar ;(</p>
+
+<span style="line-height:21px;display:table;clear:both;"></span></div>
+
+<span style="box-sizing:border-box;"><ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;"></ul></span>
+</div>
+</div>
+
+</div>
+
+<div style="box-sizing:border-box;display:block;clear:both;color:rgba(29, 47, 58, 0.6);margin:4px 0px 0px;">
+
+
+
+</div>
+</div>
+
+
+<div style="box-sizing:border-box;"></div>
+<div style="box-sizing:border-box;"></div>
+<span style="display:table;line-height:0;clear:both;"></span></div>
+
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;"></ul>
+
+
+<span style="font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;display:table;clear:both;"></span></li></ul>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div style="box-sizing:border-box;position:static;visibility:visible;display:block;width:100%;">
+<div style="box-sizing:border-box;display:inline-block;color:rgb(68, 68, 68);font-family:'Helvetica Neue', arial, sans-serif;font-size:14px;-webkit-font-smoothing:antialiased;clear:both;margin-top:20px;width:100%;">
+
+
+<div style="box-sizing:border-box;position:absolute;margin-top:-7px;right:0px;">
+
+</div>
+
+
+
+<div style="box-sizing:border-box;display:block;">
+<div style="box-sizing:border-box;display:block;margin-bottom:0.8em;">
+
+
+<h2 style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:11px;line-height:1;font-family:inherit;text-transform:uppercase;color:rgba(34, 59, 74, 0.498039);">Also on 
+<strong style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:100%;line-height:1;font-family:inherit;color:rgba(34, 59, 74, 0.701961);">SSL-Tools</strong>
+</h2>
+
+
+
+
+</div>
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;">
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;margin-bottom:13.5px;float:left;width:48%;margin-right:4%;">
+<a href="http://redirect.disqus.com/url?url=https%3A%2F%2Fde.ssl-tools.net%2Fmailservers%2Fflauschfunk.de%3Aua-12Mg4lUyGkLBjKkax0vvTsoY&amp;imp=1ieuvdj2ejpegh&amp;prev_imp=1iesn8t3h5n80m&amp;forum_id=2854510&amp;forum=ssltools&amp;thread_id=2290973116&amp;major_version=metadata&amp;thread=2796744243&amp;zone=internal_discovery" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgb(66, 139, 202);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;">
+
+
+<div style="box-sizing:border-box;display:block;">
+<h3 style="box-sizing:border-box;margin:0px 0px 1.5em;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:16px;line-height:1.25em;font-family:inherit;margin-bottom:4px;display:block;max-height:2.5em;overflow:hidden;" title="flauschfunk.de - TLS / STARTTLS Test · SSL-Tools">
+<span style="box-sizing:border-box;">
+flauschfunk.de - TLS / STARTTLS Test · SSL-Tools
+</span>
+
+
+
+</h3>
+
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;color:rgba(30, 55, 70, 0.4);">
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;display:inline;">
+
+
+6 comments
+
+
+<span style="font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;color:rgb(204, 204, 204);">•</span></li>
+
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;display:inline;margin-right:0px;">3 months ago<span style="font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;color:rgb(204, 204, 204);margin-left:0px;"></span></li>
+
+</ul>
+
+</div>
+
+
+
+</a><a href="http://redirect.disqus.com/url?url=https%3A%2F%2Fde.ssl-tools.net%2Fmailservers%2Fflauschfunk.de%3Aua-12Mg4lUyGkLBjKkax0vvTsoY&amp;imp=1ieuvdj2ejpegh&amp;prev_imp=1iesn8t3h5n80m&amp;forum_id=2854510&amp;forum=ssltools&amp;thread_id=2290973116&amp;major_version=metadata&amp;thread=2796744243&amp;zone=internal_discovery" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:14px;line-height:1;font-family:inherit;text-decoration:none;color:rgb(51, 51, 51);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;display:inline-block;width:100%;margin-top:6px;">
+<img src="Mailserver encryption test (STARTTLS, TLS and_files/noavatar92 [2].png" type="image/png" alt="Avatar" height="30" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;width:30px;height:30px;float:left;margin-right:8px;margin-top:3px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;" width="30"/>
+<p style="box-sizing:border-box;margin:0px 0px 1.5em;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:14px;line-height:1.4em;font-family:inherit;max-height:4.2em;overflow:hidden;margin-bottom:0px;color:rgb(66, 71, 74);"><span style="box-sizing:border-box;font-weight:600;font-size:13px;color:rgba(30, 55, 70, 0.4);">Giovanni</span> — <span style="box-sizing:border-box;"> Hallo allerseits, ich stosse hier ebenfalls permanent auf einen DNSSEC-Fehler für meinen DANE-TLSA Record für die Domäne cofone.net, welcher aber offensichtlich nicht durch eine fehlerhafte Konfiguration …</span></p>
+</a>
+
+
+
+</li>
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;margin-bottom:10px;float:left;width:48%;clear:right;">
+<a href="http://redirect.disqus.com/url?url=https%3A%2F%2Fde.ssl-tools.net%2Fmailservers%2Fspamexperts.com%3AiIPLvwKlfRhKte8fC-XFLS61fcE&amp;imp=1ieuvdj2ejpegh&amp;prev_imp=1iesn8t3h5n80m&amp;forum_id=2854510&amp;forum=ssltools&amp;thread_id=2290973116&amp;major_version=metadata&amp;thread=2791706225&amp;zone=internal_discovery" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgb(66, 139, 202);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;">
+
+
+<div style="box-sizing:border-box;display:block;">
+<h3 style="box-sizing:border-box;margin:0px 0px 1.5em;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:16px;line-height:1.25em;font-family:inherit;margin-bottom:4px;display:block;max-height:2.5em;overflow:hidden;" title="spamexperts.com - TLS / STARTTLS Test · SSL-Tools">
+<span style="box-sizing:border-box;">
+spamexperts.com - TLS / STARTTLS Test · SSL-Tools
+</span>
+
+
+
+</h3>
+
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;color:rgba(30, 55, 70, 0.4);">
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;display:inline;">
+
+
+2 comments
+
+
+<span style="font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;color:rgb(204, 204, 204);">•</span></li>
+
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;display:inline;margin-right:0px;">3 months ago<span style="font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;color:rgb(204, 204, 204);margin-left:0px;"></span></li>
+
+</ul>
+
+</div>
+
+
+
+</a><a href="http://redirect.disqus.com/url?url=https%3A%2F%2Fde.ssl-tools.net%2Fmailservers%2Fspamexperts.com%3AiIPLvwKlfRhKte8fC-XFLS61fcE&amp;imp=1ieuvdj2ejpegh&amp;prev_imp=1iesn8t3h5n80m&amp;forum_id=2854510&amp;forum=ssltools&amp;thread_id=2290973116&amp;major_version=metadata&amp;thread=2791706225&amp;zone=internal_discovery" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:14px;line-height:1;font-family:inherit;text-decoration:none;color:rgb(51, 51, 51);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;display:inline-block;width:100%;margin-top:6px;">
+<img src="Mailserver encryption test (STARTTLS, TLS and_files/avatar92 [2].jpg" type="image/jpeg" alt="Avatar" height="30" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;width:30px;height:30px;float:left;margin-right:8px;margin-top:3px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;" width="30"/>
+<p style="box-sizing:border-box;margin:0px 0px 1.5em;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:14px;line-height:1.4em;font-family:inherit;max-height:4.2em;overflow:hidden;margin-bottom:0px;color:rgb(66, 71, 74);"><span style="box-sizing:border-box;font-weight:600;font-size:13px;color:rgba(30, 55, 70, 0.4);">Corny</span> — <span style="box-sizing:border-box;">The MX record points to mx.spamexperts.com and that zone has A records. So mx.spamexports.com should also be covered by the certificate.</span></p>
+</a>
+
+
+
+</li>
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;margin-bottom:13.5px;float:left;width:48%;margin-right:4%;">
+<a href="http://redirect.disqus.com/url?url=https%3A%2F%2Fssl-tools.net%2Fmailservers%2Fsegan.junkemailfilter.com%3A28b87cBMpb1yvyX4sp2v2IIs_G4&amp;imp=1ieuvdj2ejpegh&amp;prev_imp=1iesn8t3h5n80m&amp;forum_id=2854510&amp;forum=ssltools&amp;thread_id=2290973116&amp;major_version=metadata&amp;thread=2953184646&amp;zone=internal_discovery" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgb(66, 139, 202);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;">
+
+
+<div style="box-sizing:border-box;display:block;">
+<h3 style="box-sizing:border-box;margin:0px 0px 1.5em;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:16px;line-height:1.25em;font-family:inherit;margin-bottom:4px;display:block;max-height:2.5em;overflow:hidden;" title="segan.junkemailfilter.com - TLS / STARTTLS Test · SSL-Tools">
+<span style="box-sizing:border-box;">
+segan.junkemailfilter.com - TLS / STARTTLS Test · SSL-Tools
+</span>
+
+
+
+</h3>
+
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;color:rgba(30, 55, 70, 0.4);">
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;display:inline;">
+
+
+1 comment
+
+
+<span style="font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;color:rgb(204, 204, 204);">•</span></li>
+
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;display:inline;margin-right:0px;">a month ago<span style="font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;color:rgb(204, 204, 204);margin-left:0px;"></span></li>
+
+</ul>
+
+</div>
+
+
+
+</a><a href="http://redirect.disqus.com/url?url=https%3A%2F%2Fssl-tools.net%2Fmailservers%2Fsegan.junkemailfilter.com%3A28b87cBMpb1yvyX4sp2v2IIs_G4&amp;imp=1ieuvdj2ejpegh&amp;prev_imp=1iesn8t3h5n80m&amp;forum_id=2854510&amp;forum=ssltools&amp;thread_id=2290973116&amp;major_version=metadata&amp;thread=2953184646&amp;zone=internal_discovery" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:14px;line-height:1;font-family:inherit;text-decoration:none;color:rgb(51, 51, 51);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;display:inline-block;width:100%;margin-top:6px;">
+<img src="Mailserver encryption test (STARTTLS, TLS and_files/avatar92 [3].jpg" type="image/jpeg" alt="Avatar" height="30" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;width:30px;height:30px;float:left;margin-right:8px;margin-top:3px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;" width="30"/>
+<p style="box-sizing:border-box;margin:0px 0px 1.5em;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:14px;line-height:1.4em;font-family:inherit;max-height:4.2em;overflow:hidden;margin-bottom:0px;color:rgb(66, 71, 74);"><span style="box-sizing:border-box;font-weight:600;font-size:13px;color:rgba(30, 55, 70, 0.4);">mperkel</span> — <span style="box-sizing:border-box;">Great tool! Thanks!</span></p>
+</a>
+
+
+
+</li>
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;margin-bottom:10px;float:left;width:48%;clear:right;">
+<a href="http://redirect.disqus.com/url?url=https%3A%2F%2Fde.ssl-tools.net%2Fmailservers%2Fsmtp.mail.yahoo.de%3AjuJVWcBsVDxKiLjYe_oUGN8t5SY&amp;imp=1ieuvdj2ejpegh&amp;prev_imp=1iesn8t3h5n80m&amp;forum_id=2854510&amp;forum=ssltools&amp;thread_id=2290973116&amp;major_version=metadata&amp;thread=2608701670&amp;zone=internal_discovery" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-decoration:none;color:rgb(66, 139, 202);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;">
+
+
+<div style="box-sizing:border-box;display:block;">
+<h3 style="box-sizing:border-box;margin:0px 0px 1.5em;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:16px;line-height:1.25em;font-family:inherit;margin-bottom:4px;display:block;max-height:2.5em;overflow:hidden;" title="smtp.mail.yahoo.de - TLS / STARTTLS Test · SSL-Tools">
+<span style="box-sizing:border-box;">
+smtp.mail.yahoo.de - TLS / STARTTLS Test · SSL-Tools
+</span>
+
+
+
+</h3>
+
+
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;color:rgba(30, 55, 70, 0.4);">
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;display:inline;">
+
+
+1 comment
+
+
+<span style="font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;color:rgb(204, 204, 204);">•</span></li>
+
+
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;display:inline;margin-right:0px;">5 months ago<span style="font-weight:500;font-style:normal;font-size:12px;line-height:1.1em;font-family:inherit;color:rgb(204, 204, 204);margin-left:0px;"></span></li>
+
+</ul>
+
+</div>
+
+
+
+</a><a href="http://redirect.disqus.com/url?url=https%3A%2F%2Fde.ssl-tools.net%2Fmailservers%2Fsmtp.mail.yahoo.de%3AjuJVWcBsVDxKiLjYe_oUGN8t5SY&amp;imp=1ieuvdj2ejpegh&amp;prev_imp=1iesn8t3h5n80m&amp;forum_id=2854510&amp;forum=ssltools&amp;thread_id=2290973116&amp;major_version=metadata&amp;thread=2608701670&amp;zone=internal_discovery" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:14px;line-height:1;font-family:inherit;text-decoration:none;color:rgb(51, 51, 51);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;display:inline-block;width:100%;margin-top:6px;">
+<img src="Mailserver encryption test (STARTTLS, TLS and_files/noavatar92 [3].png" type="image/png" alt="Avatar" height="30" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;width:30px;height:30px;float:left;margin-right:8px;margin-top:3px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;" width="30"/>
+<p style="box-sizing:border-box;margin:0px 0px 1.5em;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:14px;line-height:1.4em;font-family:inherit;max-height:4.2em;overflow:hidden;margin-bottom:0px;color:rgb(66, 71, 74);"><span style="box-sizing:border-box;font-weight:600;font-size:13px;color:rgba(30, 55, 70, 0.4);">Eike</span> — <span style="box-sizing:border-box;">Zum Kotzen ...... Yahoos Mail-Zertifikat läuft aus und haufenweise haben Nutzer ein Problem am 04.06.2014Wirklich schlecht gemacht, Yahoo!</span></p>
+</a>
+
+
+
+</li>
+
+</ul>
+</div>
+
+
+</div>
+</div>
+
+<div style="box-sizing:border-box;clear:both;border-top-width:2px;border-top-style:solid;border-color:rgba(0, 39, 59, 0.0784314);padding:24px 0px 10px;">
+<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;"><span style="font-weight:400;font-style:normal;font-size:100%;line-height:0;font-family:inherit;list-style:none;display:table;"></span>
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:right;position:relative;"><a href="http://disqus.com/" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:700;font-style:normal;font-size:12px;line-height:1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.2);transition:color 0.1s linear;-webkit-transition:color 0.1s linear;display:block;float:right;text-indent:-9999em;height:16px;width:86px;background-image:url(https://a.disquscdn.com//a.disquscdn.com/next/assets/img/sprite.8f00ae117e1b25b3c5017ee98ae5731a.png);background-size:86px 124px;background-position:0px -91px;" title="Powered by Disqus">Powered by Disqus</a></li>
+<li style="box-sizing:border-box;margin:0px 29px 0px 0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;position:relative;"> 
+<div style="box-sizing:border-box;">
+<a href="https://disqus.com/embed/comments/?base=default&amp;disqus_version=f87655a9&amp;f=ssltools&amp;t_i=%2Fmailservers&amp;t_u=https%3A%2F%2Fssl-tools.net%2Fmailservers&amp;t_d=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;t_t=Mailserver%20encryption%20test%20(STARTTLS%2C%20TLS%20and%20PFS)%20%C2%B7%20SSL-Tools&amp;s_o=default&amp;l=en#" style="box-sizing:border-box;margin:0px;padding:0px 0px 0px 25px;border:0px;font-weight:700;font-style:normal;font-size:12px;line-height:1.1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.2);transition:color 0.2s;-webkit-transition:color 0.2s;" title="Subscribe and get email updates from this discussion"><i style="box-sizing:border-box;position:absolute;left:0px;font-size:19px;top:-1px;"><span style="font-size:19px;font-family:icons;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;">✉</span></i><span style="box-sizing:border-box;">Subscribe</span> <i style="box-sizing:border-box;position:absolute;left:auto;font-size:12px;top:-5px;opacity:0;visibility:hidden;transition:opacity, top;-webkit-transition:opacity, top;color:rgb(143, 200, 71);right:-19px;"><span style="font-size:12px;visibility:hidden;color:rgb(143, 200, 71);font-family:icons;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;">✔</span></i></a>
+</div>
+
+</li>
+<li style="box-sizing:border-box;margin:0px 29px 0px 0px;padding:0px;border:0px;font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;float:left;position:relative;">
+<a href="https://disqus.com/websites/?utm_source=ssltools&amp;utm_medium=Disqus-Footer" style="box-sizing:border-box;margin:0px;padding:0px 0px 0px 25px;border:0px;font-weight:700;font-style:normal;font-size:12px;line-height:1.1;font-family:inherit;text-decoration:none;color:rgba(0, 39, 59, 0.2);transition:color 0.2s;-webkit-transition:color 0.2s;" target="_blank">
+<i style="box-sizing:border-box;position:absolute;left:0px;font-size:18px;top:0px;"><span style="font-size:18px;font-family:icons;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;">d</span></i>
+<span style="box-sizing:border-box;">Add Disqus to your site</span>
+</a>
+</li>
+
+<span style="font-weight:400;font-style:normal;font-size:100%;line-height:1;font-family:inherit;list-style:none;display:table;clear:both;"></span></ul>
+</div>
+</div></div></div></div></div><div style="box-sizing:border-box;width:1140px !important;border:none !important;overflow:hidden !important;top:0px !important;min-width:1140px !important;max-width:1140px !important;position:fixed !important;z-index:2147483646 !important;height:29px !important;min-height:29px !important;max-height:29px !important;display:none !important;" title="Disqus"></div><div style="box-sizing:border-box;width:1140px !important;border:none !important;overflow:hidden !important;bottom:0px !important;min-width:1140px !important;max-width:1140px !important;position:fixed !important;z-index:2147483646 !important;height:29px !important;min-height:29px !important;max-height:29px !important;display:none !important;" title="Disqus"></div></div>
+
+<span style="display:table;clear:both;"> </span></div>
+<div style="box-sizing:border-box;display:block;color:rgb(153, 153, 153);margin-top:2em;padding:1em 0px;border-top-width:1px;border-top-style:solid;border-top-color:rgb(221, 221, 221);margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;width:1170px;"><span style="color:rgb(153, 153, 153);display:table;"> </span>
+<div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;"><span style="display:table;"> </span>
+<div style="box-sizing:border-box;text-align:left;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:33.3333333333%;">
+<ul style="box-sizing:border-box;margin-top:0px;margin-bottom:10px;padding-left:0px;list-style:none;">
+<li style="box-sizing:border-box;"><a href="https://ssl-tools.net/certificates" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">Root Certificates</a></li>
+<li style="box-sizing:border-box;"><a href="https://ssl-tools.net/heartbleed-test" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">Heartbleed Test</a></li>
+<li style="box-sizing:border-box;"><a href="https://prism-break.org/" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">prism-break.org</a></li>
+</ul>
+</div>
+<div style="box-sizing:border-box;text-align:center;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:33.3333333333%;">
+Sponsored by:
+<br style="box-sizing:border-box;"/>
+<a href="https://ssl-trust.com/" style="box-sizing:border-box;background:transparent;color:rgb(51, 51, 51);text-decoration:none;font-size:12px;opacity:0.7;"><img src="Mailserver encryption test (STARTTLS, TLS and_files/Image [1].png" type="image/png" alt="SSL-Zertifikate" height="28" style="box-sizing:border-box;border:0px;vertical-align:middle;" width="150"/>
+<br style="box-sizing:border-box;"/>
+SSL-Zertifikate mit Preisgarantie
+</a></div>
+<div style="box-sizing:border-box;text-align:right;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:33.3333333333%;">
+<ul style="box-sizing:border-box;margin-top:0px;margin-bottom:10px;padding-left:0px;list-style:none;">
+<li style="box-sizing:border-box;">
+Diese Seite anzeigen auf
+<a href="http://de.ssl-tools.net/mailservers" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">Deutsch</a>.
+</li>
+<li style="box-sizing:border-box;">© 2013-2014 Digineo GmbH</li>
+<li style="box-sizing:border-box;"><a href="http://www.digineo.de/team/impressum/" style="box-sizing:border-box;background:transparent;color:rgb(66, 139, 202);text-decoration:none;">Legal Notices</a></li>
+</ul>
+</div>
+<span style="display:table;clear:both;"> </span></div>
+<span style="color:rgb(153, 153, 153);display:table;clear:both;"> </span></div>
+
+
+
+</div></div></div><br/></div>
+</div></body></html> 
