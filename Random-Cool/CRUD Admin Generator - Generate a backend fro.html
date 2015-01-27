@@ -1,0 +1,316 @@
+<html>
+<head>
+  <title>CRUD Admin Generator - Generate a backend from a MySql database</title>
+  <basefont face="Tahoma" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/274061; Windows/6.1.7601 Service Pack 1;"/>
+  <style>
+    body, td {
+      font-family: Tahoma;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="532"/>
+<h1>CRUD Admin Generator - Generate a backend from a MySql database</h1>
+
+<div><div><br/><div style="font-size: 16px"><div style="box-sizing:border-box;font-family:sans-serif;font-size:62.5%;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-font-smoothing:antialiased;"><div style="box-sizing:border-box;font-family:Arial, Helvetica, sans-serif;font-size:14px;line-height:1.428571429;color:rgb(51, 51, 51);background-color:rgb(255, 255, 255);">
+
+<div style="box-sizing:border-box;display:block;position:fixed;min-height:50px;margin-bottom:20px;border:1px solid transparent;border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-right-radius:0px;border-bottom-left-radius:0px;right:0px;left:0px;z-index:1030;top:0px;border-width:0px 0px 1px;background:rgb(233, 102, 68);padding:0px;transition:background 0.5s ease-in-out, padding 0.5s ease-in-out;-webkit-transition:background 0.5s ease-in-out, padding 0.5s ease-in-out;"><span style="display:table;"> </span>
+  <div style="box-sizing:border-box;margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;width:1170px;"><span style="display:table;"> </span>
+    <div style="box-sizing:border-box;float:left;margin-right:0px;margin-left:0px;"><span style="display:table;"> </span>
+      
+       <span style="display:table;clear:both;"> </span></div>
+    
+    
+    <div style="box-sizing:border-box;display:block;max-height:340px;overflow-x:visible;padding-right:0px;padding-left:0px;border-top-width:0px;border-top-style:solid;border-top-color:transparent;box-shadow:none;width:auto;padding-bottom:0px;height:auto;overflow:visible;margin-right:0px;margin-left:0px;border-color:rgb(249, 122, 89);"><span style="display:table;"> </span>
+      <ul style="box-sizing:border-box;margin:0px;padding:0px;padding-left:0px;list-style:none;float:right;"><span style="list-style:none;display:table;"> </span>
+        
+        
+        <li style="box-sizing:border-box;position:relative;display:block;float:left;"> <a href="http://crud-admin-generator.com/#whatis" style="box-sizing:border-box;background:0px 0px;color:rgb(255, 255, 255);text-decoration:none;outline:none;position:relative;display:block;padding:10px;padding-top:15px;padding-bottom:15px;line-height:20px;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;-webkit-font-smoothing:antialiased;background-color:rgb(223, 76, 38);">What is?</a> </li>
+        <li style="box-sizing:border-box;position:relative;display:block;float:left;"> <a href="http://crud-admin-generator.com/#installation" style="box-sizing:border-box;background:0px 0px;color:rgb(250, 207, 195);text-decoration:none;outline:none;position:relative;display:block;padding:10px;padding-top:15px;padding-bottom:15px;line-height:20px;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;-webkit-font-smoothing:antialiased;">Installation</a> </li>
+        <li style="box-sizing:border-box;position:relative;display:block;float:left;"> <a href="http://crud-admin-generator.com/#screenshots" style="box-sizing:border-box;background:0px 0px;color:rgb(250, 207, 195);text-decoration:none;outline:none;position:relative;display:block;padding:10px;padding-top:15px;padding-bottom:15px;line-height:20px;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;-webkit-font-smoothing:antialiased;">Screenshots</a> </li>
+        <li style="box-sizing:border-box;position:relative;display:block;float:left;"> <a href="http://crud-admin-generator.com/#author" style="box-sizing:border-box;background:0px 0px;color:rgb(250, 207, 195);text-decoration:none;outline:none;position:relative;display:block;padding:10px;padding-top:15px;padding-bottom:15px;line-height:20px;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px;-webkit-font-smoothing:antialiased;">Author</a> </li>
+      <span style="list-style:none;display:table;clear:both;"> </span></ul>
+    <span style="display:table;clear:both;"> </span></div>
+     
+  <span style="display:table;clear:both;"> </span></div>
+   
+  
+<span style="display:table;clear:both;"> </span></div>
+
+
+<div style="box-sizing:border-box;display:block;padding-bottom:90px;padding-top:90px;background:rgb(233, 102, 68);">
+  <div style="box-sizing:border-box;margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;width:1170px;"><span style="display:table;"> </span>
+  <div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;margin-top:30px;text-align:center;"><span style="text-align:center;display:table;"> </span>
+  <h1 style="box-sizing:border-box;font-size:42px;margin:0px 0px 10px;font-family:inherit;font-weight:bold;line-height:1.1;color:rgb(255, 255, 255);letter-spacing:-2px;">CRUD Admin Generator</h1>
+        <p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(250, 203, 190);-webkit-font-smoothing:antialiased;font-size:16px;line-height:28px;"><strong style="box-sizing:border-box;font-weight:700;">An open source tool to generate a complete backend from a MySql database.</strong></p> <a href="https://github.com/jonseg/crud-admin-generator" style="box-sizing:border-box;background:0px 0px;color:rgb(253, 154, 128);text-decoration:none;outline:none;display:inline-block;margin-bottom:0px;font-weight:400;text-align:center;vertical-align:middle;cursor:pointer;border:2px solid rgb(253, 154, 128);white-space:nowrap;padding:15px 60px;font-size:14px;line-height:1.428571429;border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;-webkit-user-select:none;background-image:none;background-color:rgb(233, 102, 68);text-transform:uppercase;letter-spacing:1px;margin-top:20px;transition:all 0.3s;-webkit-transition:all 0.3s;">Download now!</a><span style="text-align:center;display:table;clear:both;"> </span></div>
+    <div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;"><span style="display:table;"> </span>
+      
+      <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100%;"> <img src="CRUD Admin Generator - Generate a backend fro_files/Image.png" type="image/png" height="546" style="box-sizing:border-box;border:0px;vertical-align:middle;display:block;max-width:100%;height:auto;margin-top:20px;text-align:center;" width="1140"/> </div>
+    <span style="display:table;clear:both;"> </span></div>
+  <span style="display:table;clear:both;"> </span></div>
+</div>
+
+<div style="box-sizing:border-box;display:block;padding-bottom:90px;padding-top:90px;">
+  <div style="box-sizing:border-box;margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;width:1170px;"><span style="display:table;"> </span>
+    <div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;"><span style="display:table;"> </span>
+      <div style="box-sizing:border-box;text-align:center;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100%;padding-bottom:30px;">
+        <h1 style="box-sizing:border-box;font-size:32px;margin:0.67em 0px;font-family:inherit;font-weight:bold;line-height:1.1;color:rgb(48, 45, 45);margin-top:20px;margin-bottom:10px;letter-spacing:-2px;">Generate a complete backend from a MySql database. In seconds.</h1>
+        <p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;">The backend is generated in seconds without configuration files where there is a lot of &quot;magic&quot; and is very difficult to adapt to your needs.</p>
+      </div>
+    <span style="display:table;clear:both;"> </span></div>
+    <div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;"><span style="display:table;"> </span>
+      <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:25%;">
+        <div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;"><span style="display:table;"> </span>
+          <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100%;">
+            <h3 style="box-sizing:border-box;font-family:inherit;font-weight:500;line-height:1.1;color:rgb(65, 62, 60);margin-top:20px;margin-bottom:10px;font-size:20px;">Open Source</h3>
+            <p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;">The code is hosted on GitHub. Fork it and send us your pull requests.</p>
+          </div>
+          <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100%;">
+            <h3 style="box-sizing:border-box;font-family:inherit;font-weight:500;line-height:1.1;color:rgb(65, 62, 60);margin-top:20px;margin-bottom:10px;font-size:20px;">PHP code</h3>
+            <p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;">It has been programmed with the <a href="http://silex.sensiolabs.org/" style="box-sizing:border-box;background:0px 0px;color:rgb(233, 102, 68);text-decoration:none;outline:none;">Silex framework</a>, so the resulting code is PHP.</p>
+          </div>
+          <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100%;">
+            <h3 style="box-sizing:border-box;font-family:inherit;font-weight:500;line-height:1.1;color:rgb(65, 62, 60);margin-top:20px;margin-bottom:10px;font-size:20px;">CRUD</h3>
+            <p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;">Generates one menu section for each database table. Now will be much easier to list, create, edit and delete items!</p>
+          </div>
+          <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100%;">
+            <h3 style="box-sizing:border-box;font-family:inherit;font-weight:500;line-height:1.1;color:rgb(65, 62, 60);margin-top:20px;margin-bottom:10px;font-size:20px;">From your existing database</h3>
+            <p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;">Generate the backend from your existing database.</p>
+          </div>          
+        <span style="display:table;clear:both;"> </span></div>
+      </div>
+      <div style="box-sizing:border-box;text-align:center;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:50%;"> <img src="CRUD Admin Generator - Generate a backend fro_files/Image [1].png" type="image/png" height="383" style="box-sizing:border-box;border:0px;vertical-align:middle;display:block;max-width:100%;height:auto;" width="555"/> <a href="https://github.com/jonseg/crud-admin-generator" style="box-sizing:border-box;background:0px 0px;color:rgb(233, 102, 68);text-decoration:none;outline:none;display:inline-block;margin-bottom:15px;font-weight:800;text-align:center;vertical-align:middle;cursor:pointer;border:2px solid rgb(233, 102, 68);white-space:nowrap;padding:15px 60px;font-size:14px;line-height:1.428571429;border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;-webkit-user-select:none;background-image:none;background-color:rgb(255, 255, 255);text-transform:uppercase;letter-spacing:1px;transition:all 0.3s;-webkit-transition:all 0.3s;margin-top:15px;">Download now!</a> </div>
+      <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:25%;">
+        <div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;"><span style="display:table;"> </span>
+          <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100%;">
+            <h3 style="box-sizing:border-box;font-family:inherit;font-weight:500;line-height:1.1;color:rgb(65, 62, 60);margin-top:20px;margin-bottom:10px;font-size:20px;">Table relations</h3>
+            <p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;">When a column ends in &quot;_id&quot; and the first part is a database table, the edit and create form automatically generates a select with the &quot;name&quot;, &quot;title&quot;, &quot;username&quot; or &quot;email&quot; column of this table. Also, on listings, that value is displayed instead of the &quot;id&quot;.</p>
+          </div>
+          <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100%;">
+            <h3 style="box-sizing:border-box;font-family:inherit;font-weight:500;line-height:1.1;color:rgb(65, 62, 60);margin-top:20px;margin-bottom:10px;font-size:20px;">Easy to extend and customize</h3>
+            <p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;">The generated code is &quot;pure&quot; PHP code, you can modify and adapt to your needs.</p>
+          </div>
+          <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100%;">
+            <h3 style="box-sizing:border-box;font-family:inherit;font-weight:500;line-height:1.1;color:rgb(65, 62, 60);margin-top:20px;margin-bottom:10px;font-size:20px;">Responsive design</h3>
+            <p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;">We used this bootstrap based design: <a href="http://almsaeedstudio.com/AdminLTE/index.html" style="box-sizing:border-box;background:0px 0px;color:rgb(233, 102, 68);text-decoration:none;outline:none;">AdminLTE</a></p>
+          </div>
+        <span style="display:table;clear:both;"> </span></div>
+      </div>
+    <span style="display:table;clear:both;"> </span></div>
+  <span style="display:table;clear:both;"> </span></div>
+</div>
+
+<div style="box-sizing:border-box;display:block;padding-bottom:90px;padding-top:90px;background-color:rgb(251, 249, 248);">
+  <div style="box-sizing:border-box;margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;width:1170px;"><span style="display:table;"> </span>
+    <div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;"><span style="display:table;"> </span>
+      
+      <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100%;">
+        <h1 style="box-sizing:border-box;font-size:32px;margin:0.67em 0px;font-family:inherit;font-weight:bold;line-height:1.1;color:rgb(48, 45, 45);margin-top:20px;margin-bottom:10px;letter-spacing:-2px;">Installation</h1>
+
+
+<p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;"></p><p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;"></p><br style="box-sizing:border-box;"/>Clone GitHub repository:<br style="box-sizing:border-box;"/><br style="box-sizing:border-box;"/>
+<pre style="box-sizing:border-box;overflow:auto;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:13px;display:block;padding:9.5px;margin:0px 0px 10px;line-height:1.428571429;word-break:break-all;word-wrap:break-word;color:rgb(51, 51, 51);border:1px solid rgb(204, 204, 204);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(245, 245, 245);">git clone https://github.com/jonseg/crud-admin-generator.git admingenerator</pre>
+<pre style="box-sizing:border-box;overflow:auto;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:13px;display:block;padding:9.5px;margin:0px 0px 10px;line-height:1.428571429;word-break:break-all;word-wrap:break-word;color:rgb(51, 51, 51);border:1px solid rgb(204, 204, 204);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(245, 245, 245);">cd admingenerator</pre>
+<br style="box-sizing:border-box;"/>
+Download composer:<br style="box-sizing:border-box;"/><br style="box-sizing:border-box;"/>
+
+<pre style="box-sizing:border-box;overflow:auto;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:13px;display:block;padding:9.5px;margin:0px 0px 10px;line-height:1.428571429;word-break:break-all;word-wrap:break-word;color:rgb(51, 51, 51);border:1px solid rgb(204, 204, 204);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(245, 245, 245);">curl -sS https://getcomposer.org/installer | php</pre>
+<br style="box-sizing:border-box;"/>
+Install vendors:<br style="box-sizing:border-box;"/><br style="box-sizing:border-box;"/>
+
+<pre style="box-sizing:border-box;overflow:auto;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:13px;display:block;padding:9.5px;margin:0px 0px 10px;line-height:1.428571429;word-break:break-all;word-wrap:break-word;color:rgb(51, 51, 51);border:1px solid rgb(204, 204, 204);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(245, 245, 245);">php composer.phar install</pre>
+<br style="box-sizing:border-box;"/>
+You need point the document root of your virtual host to /path_to/admingenerator/web<br style="box-sizing:border-box;"/><br style="box-sizing:border-box;"/>
+
+This is an example of VirtualHost:<br style="box-sizing:border-box;"/><br style="box-sizing:border-box;"/>
+
+<pre style="box-sizing:border-box;overflow:auto;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:13px;display:block;padding:9.5px;margin:0px 0px 10px;line-height:1.428571429;word-break:break-all;word-wrap:break-word;color:rgb(51, 51, 51);border:1px solid rgb(204, 204, 204);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(245, 245, 245);">&lt;VirtualHost *:80&gt;
+   DocumentRoot /path_to/admingenerator/web
+   DirectoryIndex index.php
+   &lt;Directory &quot;/path_to/admingenerator/web&quot;&gt;
+        Options Indexes FollowSymLinks
+        Order Allow,Deny
+        Allow from all
+        AllowOverride all
+        &lt;IfModule mod_php5.c&gt;
+           php_admin_flag engine on
+           php_admin_flag safe_mode off
+           php_admin_value open_basedir none
+        &lt;/ifModule&gt;
+   &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</pre>
+<br style="box-sizing:border-box;"/>
+
+You can customize the url using the .htaccess file, maybe this will help you:<br style="box-sizing:border-box;"/>
+<a href="http://stackoverflow.com/questions/24952846/how-do-i-remove-the-web-from-my-url/24953439#24953439" style="box-sizing:border-box;background:0px 0px;color:rgb(233, 102, 68);text-decoration:none;outline:none;">http://stackoverflow.com/questions/24952846/how-do-i-remove-the-web-from-my-url/24953439#24953439</a>
+
+<br style="box-sizing:border-box;"/><br style="box-sizing:border-box;"/>
+<p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;"></p>
+
+<h1 style="box-sizing:border-box;font-size:32px;margin:0.67em 0px;font-family:inherit;font-weight:bold;line-height:1.1;color:rgb(48, 45, 45);margin-top:20px;margin-bottom:10px;letter-spacing:-2px;">Generate CRUD backend</h1>
+<p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;"></p><p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;"></p><br style="box-sizing:border-box;"/>
+
+
+Edit the file /path_to/admingenerator/src/app.php and set your database conection data:<br style="box-sizing:border-box;"/><br style="box-sizing:border-box;"/>
+
+<pre style="box-sizing:border-box;overflow:auto;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:13px;display:block;padding:9.5px;margin:0px 0px 10px;line-height:1.428571429;word-break:break-all;word-wrap:break-word;color:rgb(51, 51, 51);border:1px solid rgb(204, 204, 204);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(245, 245, 245);">$app-&gt;register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'dbs.options' =&gt; array(
+        'db' =&gt; array(
+            'driver'   =&gt; 'pdo_mysql',
+            'dbname'   =&gt; 'DATABASE_NAME',
+            'host'     =&gt; 'localhost',
+            'user'     =&gt; 'DATABASE_USER',
+            'password' =&gt; 'DATABASE_PASS',
+            'charset'  =&gt; 'utf8',
+        ),
+    )
+));
+</pre>
+<br style="box-sizing:border-box;"/>
+You need to set the url of the resources folder.
+<br style="box-sizing:border-box;"/>
+Change this line:
+<br style="box-sizing:border-box;"/><br style="box-sizing:border-box;"/>
+<pre style="box-sizing:border-box;overflow:auto;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:13px;display:block;padding:9.5px;margin:0px 0px 10px;line-height:1.428571429;word-break:break-all;word-wrap:break-word;color:rgb(51, 51, 51);border:1px solid rgb(204, 204, 204);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(245, 245, 245);">$app['asset_path'] = '/resources';
+</pre>
+<br style="box-sizing:border-box;"/>
+For the url of your proyect, for example:
+<br style="box-sizing:border-box;"/><br style="box-sizing:border-box;"/>
+<pre style="box-sizing:border-box;overflow:auto;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:13px;display:block;padding:9.5px;margin:0px 0px 10px;line-height:1.428571429;word-break:break-all;word-wrap:break-word;color:rgb(51, 51, 51);border:1px solid rgb(204, 204, 204);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(245, 245, 245);">$app['asset_path'] = 'http://domain.com/crudadmin/resources';
+</pre>
+<br style="box-sizing:border-box;"/>
+Now, execute the command that will generate the CRUD backend:<br style="box-sizing:border-box;"/><br style="box-sizing:border-box;"/>
+
+<pre style="box-sizing:border-box;overflow:auto;font-family:Menlo, Monaco, Consolas, 'Courier New', monospace;font-size:13px;display:block;padding:9.5px;margin:0px 0px 10px;line-height:1.428571429;word-break:break-all;word-wrap:break-word;color:rgb(51, 51, 51);border:1px solid rgb(204, 204, 204);border-top-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;background-color:rgb(245, 245, 245);">php console generate:admin</pre>
+<br style="box-sizing:border-box;"/>
+<strong style="box-sizing:border-box;font-weight:700;">This is it!</strong> Now access with your favorite web browser.<br style="box-sizing:border-box;"/><br style="box-sizing:border-box;"/>
+
+The command generates one menu section for each database table. <strong style="box-sizing:border-box;font-weight:700;">Now will be much easier to list, create, edit and delete rows!</strong>
+        <p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;"></p>
+
+      </div>
+    <span style="display:table;clear:both;"> </span></div>
+  <span style="display:table;clear:both;"> </span></div>
+   
+</div>
+
+
+<div style="box-sizing:border-box;display:block;padding-bottom:90px;padding-top:90px;">
+  <div style="box-sizing:border-box;margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;width:1170px;"><span style="display:table;"> </span> 
+    <div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;"><span style="display:table;"> </span>
+      <div style="box-sizing:border-box;text-align:center;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100%;padding-bottom:30px;">
+        <h1 style="box-sizing:border-box;font-size:32px;margin:0.67em 0px;font-family:inherit;font-weight:bold;line-height:1.1;color:rgb(48, 45, 45);margin-top:20px;margin-bottom:10px;letter-spacing:-2px;">Screenshots</h1>
+      </div>
+    <span style="display:table;clear:both;"> </span></div>
+    <div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;"><span style="display:table;"> </span>
+
+          <div style="box-sizing:border-box;position:relative;">
+            
+            <ol style="box-sizing:border-box;margin-top:0px;margin-bottom:10px;position:absolute;bottom:20px;left:50%;z-index:15;width:60%;margin-left:-30%;padding-left:0px;list-style:none;text-align:center;">
+              <li style="box-sizing:border-box;display:inline-block;width:12px;height:12px;margin:0px;text-indent:-999px;border:1px solid rgb(0, 0, 0);border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;cursor:pointer;background-color:rgb(0, 0, 0);"></li>
+              <li style="box-sizing:border-box;display:inline-block;width:10px;height:10px;margin:1px;text-indent:-999px;border:1px solid rgb(0, 0, 0);border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;cursor:pointer;background-color:rgba(0, 0, 0, 0);"></li>
+              <li style="box-sizing:border-box;display:inline-block;width:10px;height:10px;margin:1px;text-indent:-999px;border:1px solid rgb(0, 0, 0);border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;cursor:pointer;background-color:rgba(0, 0, 0, 0);"></li>
+              <li style="box-sizing:border-box;display:inline-block;width:10px;height:10px;margin:1px;text-indent:-999px;border:1px solid rgb(0, 0, 0);border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;cursor:pointer;background-color:rgba(0, 0, 0, 0);"></li>
+              <li style="box-sizing:border-box;display:inline-block;width:10px;height:10px;margin:1px;text-indent:-999px;border:1px solid rgb(0, 0, 0);border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;cursor:pointer;background-color:rgba(0, 0, 0, 0);"></li>
+            </ol>
+
+            
+            <div style="box-sizing:border-box;position:relative;overflow:hidden;width:100%;">
+              <div style="box-sizing:border-box;display:block;position:relative;transition:left 0.6s ease-in-out;-webkit-transition:left 0.6s ease-in-out;left:0px;">
+                <img src="CRUD Admin Generator - Generate a backend fro_files/Image [2].png" type="image/png" alt="Database" height="665" style="box-sizing:border-box;border:0px;vertical-align:middle;display:block;max-width:100%;height:auto;line-height:1;" width="1170"/>
+              </div>
+              
+              
+              
+              
+            </div>
+
+            
+            <a href="http://crud-admin-generator.com/#carousel-example-generic" style="box-sizing:border-box;background:0px 0px;color:rgb(255, 255, 255);text-decoration:none;outline:none;position:absolute;top:0px;left:0px;bottom:0px;width:15%;opacity:0.5;font-size:20px;text-align:center;text-shadow:rgba(0, 0, 0, 0.6) 0px 1px 2px;background-image:linear-gradient(to right, rgba(0, 0, 0, 0.498039) 0px, rgba(0, 0, 0, 0) 100%);background-repeat:repeat-x;">
+              <span style="box-sizing:border-box;position:absolute;top:50%;display:inline-block;font-family:'Glyphicons Halflings';font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;z-index:5;left:50%;"><span style="font-family:'Glyphicons Halflings';font-style:normal;font-weight:400;line-height:1;"></span></span>
+            </a>
+            <a href="http://crud-admin-generator.com/#carousel-example-generic" style="box-sizing:border-box;background:0px 0px;color:rgb(255, 255, 255);text-decoration:none;outline:none;position:absolute;top:0px;left:auto;bottom:0px;width:15%;opacity:0.5;font-size:20px;text-align:center;text-shadow:rgba(0, 0, 0, 0.6) 0px 1px 2px;right:0px;background-image:linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.498039) 100%);background-repeat:repeat-x;">
+              <span style="box-sizing:border-box;position:absolute;top:50%;display:inline-block;font-family:'Glyphicons Halflings';font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;z-index:5;right:50%;"><span style="font-family:'Glyphicons Halflings';font-style:normal;font-weight:400;line-height:1;"></span></span>
+            </a>
+          </div>    
+        <span style="display:table;clear:both;"> </span></div>
+  <span style="display:table;clear:both;"> </span></div>
+   
+</div>  
+
+<div style="box-sizing:border-box;display:block;padding-bottom:90px;padding-top:90px;background-color:rgb(251, 249, 248);">
+  <div style="box-sizing:border-box;margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;width:1170px;"><span style="display:table;"> </span>
+    <div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;"><span style="display:table;"> </span>
+      <div style="box-sizing:border-box;text-align:center;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100%;">
+        <h1 style="box-sizing:border-box;font-size:32px;margin:0.67em 0px;font-family:inherit;font-weight:bold;line-height:1.1;color:rgb(48, 45, 45);margin-top:20px;margin-bottom:10px;letter-spacing:-2px;">Author</h1>
+      </div>
+    <span style="display:table;clear:both;"> </span></div>
+    <div style="box-sizing:border-box;margin-left:-15px;margin-right:-15px;padding-top:90px;"><span style="display:table;"> </span>
+      <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:33.3333333333333%;"></div>
+      <div style="box-sizing:border-box;text-align:center;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:33.3333333333333%;"> <a href="http://jonsegador.com/" style="box-sizing:border-box;background:0px 0px;color:rgb(233, 102, 68);text-decoration:none;outline:none;"><img src="CRUD Admin Generator - Generate a backend fro_files/Image [3].png" type="image/png" height="360" style="box-sizing:border-box;border:0px;vertical-align:middle;display:block;max-width:100%;height:auto;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-right-radius:100px;border-bottom-left-radius:100px;opacity:0.3;width:100%;" width="360"/></a>
+        <h3 style="box-sizing:border-box;font-family:inherit;font-weight:500;line-height:1.1;color:rgb(65, 62, 60);margin-top:20px;margin-bottom:10px;font-size:20px;">Jon Segador</h3>
+        <span style="box-sizing:border-box;">Developer</span>
+        <ul style="box-sizing:border-box;margin:0px;padding:0px;margin-top:10px;">
+          <li style="box-sizing:border-box;list-style:none;display:inline;margin-left:8px;margin-top:10px;"><a href="https://twitter.com/jonseg" style="box-sizing:border-box;background:0px 0px;color:rgb(222, 219, 218);text-decoration:none;outline:none;" title="Twitter"><i style="box-sizing:border-box;display:inline-block;font-family:FontAwesome;font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;font-size:2em;"><span style="font-family:FontAwesome;font-style:normal;font-weight:normal;line-height:1;font-size:2em;"></span></i></a></li>
+          <li style="box-sizing:border-box;list-style:none;display:inline;margin-left:8px;margin-top:10px;"><a href="https://plus.google.com/+JonSegador" style="box-sizing:border-box;background:0px 0px;color:rgb(222, 219, 218);text-decoration:none;outline:none;" title="Google Plus"><i style="box-sizing:border-box;display:inline-block;font-family:FontAwesome;font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;font-size:2em;"><span style="font-family:FontAwesome;font-style:normal;font-weight:normal;line-height:1;font-size:2em;"></span></i></a></li>
+          <li style="box-sizing:border-box;list-style:none;display:inline;margin-left:8px;margin-top:10px;"><a href="https://github.com/jonseg" style="box-sizing:border-box;background:0px 0px;color:rgb(222, 219, 218);text-decoration:none;outline:none;" title="GitHub"><i style="box-sizing:border-box;display:inline-block;font-family:FontAwesome;font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;font-size:2em;"><span style="font-family:FontAwesome;font-style:normal;font-weight:normal;line-height:1;font-size:2em;"></span></i></a></li>
+          <li style="box-sizing:border-box;list-style:none;display:inline;margin-left:8px;margin-top:10px;"><a href="http://es.linkedin.com/in/jonsegador" style="box-sizing:border-box;background:0px 0px;color:rgb(222, 219, 218);text-decoration:none;outline:none;" title="Linkedin"><i style="box-sizing:border-box;display:inline-block;font-family:FontAwesome;font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;font-size:2em;"><span style="font-family:FontAwesome;font-style:normal;font-weight:normal;line-height:1;font-size:2em;"></span></i></a></li>
+        </ul>
+<br style="box-sizing:border-box;"/><br style="box-sizing:border-box;"/>
+<div style="box-sizing:border-box;">
+
+
+<img alt="PayPal - The safer, easier way to pay online!" border="0" name="submit" src="" style="box-sizing:border-box;color:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant:inherit;font-weight:inherit;font-stretch:inherit;line-height:inherit;margin:0px;"></img>
+<img src="CRUD Admin Generator - Generate a backend fro_files/pixel.gif" type="image/gif" border="0" height="1" style="box-sizing:border-box;border:0px;vertical-align:middle;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-right-radius:100px;border-bottom-left-radius:100px;opacity:0.3;width:100%;" width="1"/>
+</div>
+
+      </div>
+    <span style="display:table;clear:both;"> </span></div>
+    
+    
+  <span style="display:table;clear:both;"> </span></div>
+</div>
+
+
+
+
+<div style="box-sizing:border-box;display:block;background-color:rgb(251, 249, 248);">
+
+  <div style="box-sizing:border-box;min-height:500px;padding-top:100px;padding-bottom:100px;color:rgb(119, 114, 113);background:rgb(45, 42, 42);">
+  <div style="box-sizing:border-box;margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;width:1170px;"><span style="display:table;"> </span>
+ <div style="box-sizing:border-box;text-align:center;margin-left:-15px;margin-right:-15px;"><span style="text-align:center;display:table;"> </span>
+      <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:33.3333333333333%;"></div>
+      <div style="box-sizing:border-box;text-align:center;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:33.3333333333333%;"> <i style="box-sizing:border-box;display:inline-block;font-family:FontAwesome;font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;font-size:3em;margin-bottom:20px;"><span style="font-family:FontAwesome;font-style:normal;font-weight:normal;line-height:1;font-size:3em;"></span></i>
+        <p style="box-sizing:border-box;margin:0px 0px 10px;color:rgb(152, 147, 146);-webkit-font-smoothing:antialiased;font-size:18px;"><a href="http://crud-admin-generator.com/mailto:info@jonsegador.com?subject=CRUD%20Admin%20Generator" style="box-sizing:border-box;background:0px 0px;color:rgb(119, 114, 113);text-decoration:none;outline:none;">info@jonsegador.com</a></p>
+      </div>
+      <div style="box-sizing:border-box;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:33.3333333333333%;">
+      </div>
+    <span style="text-align:center;display:table;clear:both;"> </span></div>
+    <span style="display:table;clear:both;"> </span></div>
+    </div>
+   
+  
+</div>
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+
+<a href="https://github.com/jonseg/crud-admin-generator" style="box-sizing:border-box;background:0px 0px;color:rgb(233, 102, 68);text-decoration:none;outline:none;"><img src="CRUD Admin Generator - Generate a backend fro_files/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f77686974655f6666666666662e706e67.png" type="image/png" alt="Fork me on GitHub" height="149" style="box-sizing:border-box;border:0;vertical-align:middle;position:absolute;top:0;left:0;z-index:99999 !important;" width="149"/></a>
+
+
+
+
+
+</div></div></div><br/></div>
+</div></body></html> 

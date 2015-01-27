@@ -1,0 +1,201 @@
+<html>
+<head>
+  <title>Using Docker to run WordPress behind an Nginx reverse proxy for development – Mijndert Stuij</title>
+  <basefont face="Tahoma" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/274061; Windows/6.1.7601 Service Pack 1;"/>
+  <style>
+    body, td {
+      font-family: Tahoma;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="760"/>
+<h1>Using Docker to run WordPress behind an Nginx reverse proxy for development – Mijndert Stuij</h1>
+
+<div><div><br/><div style="font-size: 16px"><div style="box-sizing:border-box;"><div style="box-sizing:border-box;zoom:1.001;color:rgb(85, 85, 85);font-family:Lato, 'Helvetica Neue', sans-serif;font-size:16px;word-break:break-word;background:rgb(241, 241, 241);">
+	
+		<div style="box-sizing:border-box;overflow:visible;display:block;background:rgb(45, 54, 66);">
+				
+			<div style="box-sizing:border-box;width:800px;margin:0px auto;">
+		
+				<ul style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-align:left;list-style:none;float:left;position:relative;">
+				
+					<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-align:left;position:relative;float:left;"><a href="http://mijndertstuij.nl/" style="box-sizing:border-box;outline:none;color:rgb(255, 255, 255);text-decoration:none;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;display:block;padding:20px;">Home</a></li>
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-align:left;position:relative;float:left;"><a href="https://mijndertstuij.nl/about/" style="box-sizing:border-box;outline:none;color:rgb(255, 255, 255);text-decoration:none;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;display:block;padding:20px;">About</a></li>
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-align:left;position:relative;float:left;"><a href="https://mijndertstuij.nl/contact/" style="box-sizing:border-box;outline:none;color:rgb(255, 255, 255);text-decoration:none;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;display:block;padding:20px;">Contact</a></li>
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-align:left;position:relative;float:left;"><a href="https://mijndertstuij.nl/archive/" style="box-sizing:border-box;outline:none;color:rgb(255, 255, 255);text-decoration:none;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;display:block;padding:20px;">Archive</a></li>
+<li style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-align:left;position:relative;float:left;"><a href="http://mijndertstuij.nl/feed" style="box-sizing:border-box;outline:none;color:rgb(255, 255, 255);text-decoration:none;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;display:block;padding:20px;">Feed</a></li>
+					
+				 </ul>
+				 
+				 <div style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-align:left;float:right;height:56px;width:220px;max-width:30%;">
+	 
+	
+</div>				 
+				 <div style="box-sizing:border-box;clear:both;"></div>
+			 
+			</div> 
+		 
+		</div> 
+	
+		<div style="box-sizing:border-box;background:rgb(83, 188, 167);">
+				
+			<div style="box-sizing:border-box;width:800px;margin:0px auto;padding:50px 0px;position:relative;">
+			
+											
+					<a href="https://mijndertstuij.nl/" rel="home" style="box-sizing:border-box;outline:none;color:rgb(83, 188, 167);text-decoration:none;transition:all 0.3s ease-in-out;-webkit-transition:all 0.3s ease-in-out;display:block;position:absolute;left:0px;width:100px;height:100px;border-radius:9999px;border:5px solid rgb(255, 255, 255);z-index:3;background:url(https://mijndertstuij.nl/wp-content/themes/lingonberry/images/1x/home.png) 50% 50% / 32px no-repeat rgb(255, 255, 255);" title="Mijndert Stuij | Systems administrator and proponent of simplicity">
+						<img src="Using Docker to run WordPress behind an Nginx_files/Image.jpg" type="image/jpeg" alt="Mijndert Stuij" height="90" style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-align:left;max-width:100%;height:auto;transition:all 0.3s ease-in-out;-webkit-transition:all 0.3s ease-in-out;border-radius:9999px;" width="90"/>
+					</a>
+					
+							        				
+				<h1 style="box-sizing:border-box;margin:50px 0px 50px 17%;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:2.2em;line-height:0;font-family:Raleway, 'Helvetica Neue', sans-serif;text-align:left;float:left;">
+					<a href="https://mijndertstuij.nl/" rel="home" style="box-sizing:border-box;outline:none;color:rgb(255, 255, 255);text-decoration:none;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;" title="Mijndert Stuij — Systems administrator and proponent of simplicity">Mijndert Stuij</a>
+				</h1>
+		
+				 <div style="box-sizing:border-box;clear:both;"></div>
+																							
+			</div> 
+			
+		</div> 
+<div style="box-sizing:border-box;width:800px;margin:0px auto;padding:50px 0px;position:relative;"><span style="display:block;position:absolute;left:40px;bottom:63px;height:20px;width:20px;border-radius:999px;z-index:10;background:rgb(221, 221, 221);"></span>
+											        
+		
+		<div style="box-sizing:border-box;">
+	
+			<div style="box-sizing:border-box;margin-top:0px;position:relative;border-radius:4px;box-shadow:rgba(0, 0, 0, 0.2) 0px 1px 2px;background:rgb(255, 255, 255);">
+
+				
+
+<div style="box-sizing:border-box;width:100%;float:none;position:relative;padding:5.5%;box-shadow:none;background:none;border-radius:0px;margin-left:0px;"><span style="display:block;border-width:11px;border-style:solid;border-color:transparent rgb(221, 221, 221) transparent transparent;position:absolute;top:47px;left:-22px;"></span>
+
+	<div style="box-sizing:border-box;padding-bottom:4.5%;border-bottom-width:3px;border-bottom-style:double;border-bottom-color:rgb(238, 238, 238);margin-bottom:4.5%;">
+	
+				
+	    <h2 style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:2.25em;line-height:120%;font-family:Raleway, 'Helvetica Neue', sans-serif;text-align:left;"><a href="https://mijndertstuij.nl/using-docker-run-wordpress-behind-nginx-reverse-proxy-development/" rel="bookmark" style="box-sizing:border-box;outline:none;color:rgb(45, 54, 66);text-decoration:none;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;" title="Using Docker to run WordPress behind an Nginx reverse proxy for development">Using Docker to run WordPress behind an Nginx reverse proxy for development</a></h2>
+	    
+		<div style="box-sizing:border-box;padding-top:1em;text-transform:uppercase;letter-spacing:1px;font-size:0.825em;color:rgb(153, 153, 153);">
+		
+			<span style="box-sizing:border-box;"><a href="https://mijndertstuij.nl/using-docker-run-wordpress-behind-nginx-reverse-proxy-development/" style="box-sizing:border-box;outline:none;color:rgb(153, 153, 153);text-decoration:none;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;" title="9:49 am">October 24, 2014</a></span>
+			
+			<span style="box-sizing:border-box;margin:0px 5px;color:rgb(221, 221, 221);"> / </span>
+				
+			<span style="box-sizing:border-box;"><a href="https://mijndertstuij.nl/author/mijndert/" rel="author" style="box-sizing:border-box;outline:none;color:rgb(153, 153, 153);text-decoration:none;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;" title="Posts by Mijndert Stuij">Mijndert Stuij</a></span>
+			
+						
+												
+		</div> 
+	    
+    </div> 
+										                                    	    
+    <div style="box-sizing:border-box;font-size:1.075em;">
+    	    		            			            	                                                                                            
+		<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:170%;font-family:inherit;text-align:left;margin-bottom:1.1em;margin-top:0px;"><a href="https://www.docker.com/" style="box-sizing:border-box;outline:none;color:rgb(83, 188, 167);text-decoration:none;transition:all 0.1s ease-in-out;-webkit-transition:all 0.1s ease-in-out;margin-bottom:0px;">Docker</a> really seems to be taking off as a viable solution for development workflows. If you’re working with WordPress there’s already a lot of good tools besides Docker to bootstrap a new WordPress website. But here’s how to do it with Docker.</p>
+<h2 style="box-sizing:border-box;margin:50px 0px 20px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:1.75em;line-height:1;font-family:Raleway, 'Helvetica Neue', sans-serif;text-align:left;color:rgb(68, 68, 68);">Install Docker on Ubuntu</h2>
+<pre style="box-sizing:border-box;font-size:12px;font-family:Menlo, Monaco, monospace;background:rgb(241, 241, 241);line-height:16px;white-space:pre-wrap;word-wrap:normal;padding:2px 7px;display:block;margin:6px 0px;overflow:auto;width:98%;background-color:rgb(51, 51, 51);"><span style="box-sizing:border-box;color:rgb(255, 255, 255);">$ sudo apt</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">key adv </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">--</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">keyserver hkp</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">:</span><span style="box-sizing:border-box;color:rgb(135, 206, 235);">//keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">
+$ sudo sh </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">c </span><span style="box-sizing:border-box;color:rgb(255, 160, 160);">&quot;echo deb https://get.docker.com/ubuntu docker main\
+&gt; /etc/apt/sources.list.d/docker.list&quot;</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">
+$ sudo apt</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(240, 230, 140);font-weight:bold;">get</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);"> update
+$ sudo apt</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(240, 230, 140);font-weight:bold;">get</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);"> install lxc</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);margin-bottom:0px;">docker</span></pre>
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:170%;font-family:inherit;text-align:left;margin-bottom:1.1em;">There’s also a simple script to help with this installation:</p>
+<pre style="box-sizing:border-box;font-size:12px;font-family:Menlo, Monaco, monospace;background:rgb(241, 241, 241);line-height:16px;white-space:pre-wrap;word-wrap:normal;padding:2px 7px;display:block;margin:6px 0px;overflow:auto;width:98%;background-color:rgb(51, 51, 51);"><span style="box-sizing:border-box;color:rgb(255, 255, 255);">$ curl </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">sSL https</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">:</span><span style="box-sizing:border-box;color:rgb(135, 206, 235);margin-bottom:0px;">//get.docker.com/ubuntu/ | sudo sh</span></pre>
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:170%;font-family:inherit;text-align:left;margin-bottom:1.1em;">To test that everything is working you can start an empty Ubuntu container:</p>
+<pre style="box-sizing:border-box;font-size:12px;font-family:Menlo, Monaco, monospace;background:rgb(241, 241, 241);line-height:16px;white-space:pre-wrap;word-wrap:normal;padding:2px 7px;display:block;margin:6px 0px;overflow:auto;width:98%;background-color:rgb(51, 51, 51);"><span style="box-sizing:border-box;color:rgb(255, 255, 255);">$ sudo docker run </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">i </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">t ubuntu </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">bin</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);margin-bottom:0px;">bash</span></pre>
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:170%;font-family:inherit;text-align:left;margin-bottom:1.1em;"><a href="https://docs.docker.com/installation/ubuntulinux/" style="box-sizing:border-box;outline:none;color:rgb(83, 188, 167);text-decoration:none;transition:all 0.1s ease-in-out;-webkit-transition:all 0.1s ease-in-out;margin-bottom:0px;">More information on installing Docker on Ubuntu</a>.</p>
+<h2 style="box-sizing:border-box;margin:50px 0px 20px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:1.75em;line-height:1;font-family:Raleway, 'Helvetica Neue', sans-serif;text-align:left;color:rgb(68, 68, 68);">Get a Docker container up and running with Nginx as a reverse proxy</h2>
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:170%;font-family:inherit;text-align:left;margin-bottom:1.1em;">If you want to customize <a href="https://github.com/jwilder/nginx-proxy" style="box-sizing:border-box;outline:none;color:rgb(83, 188, 167);text-decoration:none;transition:all 0.1s ease-in-out;-webkit-transition:all 0.1s ease-in-out;margin-bottom:0px;">the Docker container</a> before launching it you can get it from GitHub and build it yourself.</p>
+<pre style="box-sizing:border-box;font-size:12px;font-family:Menlo, Monaco, monospace;background:rgb(241, 241, 241);line-height:16px;white-space:pre-wrap;word-wrap:normal;padding:2px 7px;display:block;margin:6px 0px;overflow:auto;width:98%;background-color:rgb(51, 51, 51);"><span style="box-sizing:border-box;color:rgb(255, 255, 255);">$ cd </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(240, 230, 140);font-weight:bold;">where</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">you</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">want</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">to</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">store</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">the</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">image_source
+$ git clone https</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">:</span><span style="box-sizing:border-box;color:rgb(135, 206, 235);">//github.com/jwilder/nginx-proxy.git</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">
+$ cd nginx</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">proxy
+$ docker build </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">t</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">=</span><span style="box-sizing:border-box;color:rgb(255, 160, 160);">&quot;nginx-proxy&quot;</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);"> </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);margin-bottom:0px;">.</span></pre>
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:170%;font-family:inherit;text-align:left;margin-bottom:1.1em;">Run the Docker container with the Nginx reverse proxy on port 80 this way:</p>
+<pre style="box-sizing:border-box;font-size:12px;font-family:Menlo, Monaco, monospace;background:rgb(241, 241, 241);line-height:16px;white-space:pre-wrap;word-wrap:normal;padding:2px 7px;display:block;margin:6px 0px;overflow:auto;width:98%;background-color:rgb(51, 51, 51);"><span style="box-sizing:border-box;color:rgb(255, 255, 255);">$ docker run </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">d </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">p </span><span style="box-sizing:border-box;color:rgb(205, 92, 92);">80</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">:</span><span style="box-sizing:border-box;color:rgb(205, 92, 92);">80</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);"> </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">v </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(240, 230, 140);font-weight:bold;">var</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">run</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">docker</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">.</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">sock</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">:</span><span style="box-sizing:border-box;color:rgb(255, 160, 160);">/tmp/</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">docker</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">.</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">sock jwilder</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">/</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">nginx</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);margin-bottom:0px;">proxy</span></pre>
+<h2 style="box-sizing:border-box;margin:50px 0px 20px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:1.75em;line-height:1;font-family:Raleway, 'Helvetica Neue', sans-serif;text-align:left;color:rgb(68, 68, 68);">Running WordPress inside a Docker container</h2>
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:170%;font-family:inherit;text-align:left;margin-bottom:1.1em;">In the last step we’ll get a Docker container up and running with Nginx, MySQL and WordPress. The Docker container will automatically register in the Nginx reverse proxy using an environment variable.</p>
+<pre style="box-sizing:border-box;font-size:12px;font-family:Menlo, Monaco, monospace;background:rgb(241, 241, 241);line-height:16px;white-space:pre-wrap;word-wrap:normal;padding:2px 7px;display:block;margin:6px 0px;overflow:auto;width:98%;background-color:rgb(51, 51, 51);"><span style="box-sizing:border-box;color:rgb(255, 255, 255);">$ git clone https</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">:</span><span style="box-sizing:border-box;color:rgb(135, 206, 235);">//github.com/eugeneware/docker-wordpress-nginx.git</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">
+$ cd docker</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">wordpress</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">nginx
+$ sudo docker build </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">t</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">=</span><span style="box-sizing:border-box;color:rgb(255, 160, 160);">&quot;docker-wordpress-nginx&quot;</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);"> </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);margin-bottom:0px;">.</span></pre>
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:170%;font-family:inherit;text-align:left;margin-bottom:1.1em;">Now we need to start a Docker container with WordPress installed. We’ll use port 8080 on the outside of the container to proxy requests to, on the inside of the container it will be port 8080 too, but you can use any port you like. We’ll also pass VIRTUAL_HOST to the container to ensure it will be registered in the reverse proxy automatically.</p>
+<pre style="box-sizing:border-box;font-size:12px;font-family:Menlo, Monaco, monospace;background:rgb(241, 241, 241);line-height:16px;white-space:pre-wrap;word-wrap:normal;padding:2px 7px;display:block;margin:6px 0px;overflow:auto;width:98%;background-color:rgb(51, 51, 51);"><span style="box-sizing:border-box;color:rgb(255, 255, 255);">$ docker run </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">e VIRTUAL_HOST</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">=</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">wordpress1</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">.</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">dev </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">p </span><span style="box-sizing:border-box;color:rgb(205, 92, 92);">8080</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">:</span><span style="box-sizing:border-box;color:rgb(205, 92, 92);">8080</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);"> </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">--</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">name wp1dev </span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">d docker</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">wordpress</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);">-</span><span style="box-sizing:border-box;color:rgb(255, 255, 255);margin-bottom:0px;">nginx</span></pre>
+<h2 style="box-sizing:border-box;margin:50px 0px 20px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:1.75em;line-height:1;font-family:Raleway, 'Helvetica Neue', sans-serif;text-align:left;color:rgb(68, 68, 68);">Tools</h2>
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:170%;font-family:inherit;text-align:left;margin-bottom:1.1em;">For management of images and containers I played with <a href="https://github.com/crosbymichael/dockerui" style="box-sizing:border-box;outline:none;color:rgb(83, 188, 167);text-decoration:none;transition:all 0.1s ease-in-out;-webkit-transition:all 0.1s ease-in-out;margin-bottom:0px;">DockerUI</a>. It’s still in very early beta but it looks really promising and makes stopping and starting containers easier.</p>
+<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:170%;font-family:inherit;text-align:left;margin-bottom:0px;">You can also use <a href="http://passingcuriosity.com/2013/dnsmasq-dev-osx/" style="box-sizing:border-box;outline:none;color:rgb(83, 188, 167);text-decoration:none;transition:all 0.1s ease-in-out;-webkit-transition:all 0.1s ease-in-out;margin-bottom:0px;">DNSmasq</a> to point for example all *.dev requests to your local machine.</p>
+				
+							        
+    </div> 
+    
+	<div style="box-sizing:border-box;clear:both;"></div>
+	
+		
+		<div style="box-sizing:border-box;margin-top:2em;color:rgb(136, 136, 136);font-size:0.925em;">
+					
+			<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:120%;font-family:inherit;text-align:left;display:inline-block;margin-right:20px;">Categories: <a href="https://mijndertstuij.nl/category/linux/" rel="category tag" style="box-sizing:border-box;outline:none;color:rgb(83, 188, 167);text-decoration:none;transition:all 0.1s ease-in-out;-webkit-transition:all 0.1s ease-in-out;">Linux</a></p>
+		
+			<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:normal;font-style:normal;font-size:100%;line-height:120%;font-family:inherit;text-align:left;display:inline-block;margin-top:0.5em;"></p>
+		
+		</div>
+		
+	        
+<span style="display:block;border-width:10px;border-style:solid;border-color:transparent rgb(255, 255, 255) transparent transparent;position:absolute;top:48px;left:-20px;"></span></div> 
+
+<div style="box-sizing:border-box;clear:both;"></div>							
+				<div style="box-sizing:border-box;padding:4% 5.5%;background:rgb(45, 54, 66);">
+				
+										
+									
+						<a href="https://mijndertstuij.nl/empire-reboots/" style="box-sizing:border-box;outline:none;color:rgb(255, 255, 255);text-decoration:none;transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;padding:15px 20px;margin:1.5% 0px;border-radius:3px;float:left;line-height:1;background:rgb(33, 40, 49);" title="Previous post: The Empire Reboots">« The Empire Reboots</a>
+				
+										
+					<div style="box-sizing:border-box;clear:both;"></div>
+				
+				</div> 
+				
+															                        
+		   	    
+	
+			</div> 
+		
+	</div> 
+
+<span style="display:block;position:absolute;left:49px;bottom:63px;width:2px;height:100%;z-index:1;background:rgba(0, 0, 0, 0.0470588);"></span></div> 
+		
+	
+	
+	
+	
+
+<div style="box-sizing:border-box;color:rgb(119, 119, 119);font-size:0.85em;">
+
+	<div style="box-sizing:border-box;width:800px;margin:0px auto;padding:40px 0px;">
+
+		<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-align:left;float:left;">
+		
+			<span style="box-sizing:border-box;">Copyright</span> © 2014 <a href="https://mijndertstuij.nl/" style="box-sizing:border-box;outline:none;color:rgb(119, 119, 119);text-decoration:none;transition:all 0.1s ease-in-out;-webkit-transition:all 0.1s ease-in-out;" title="Mijndert Stuij">Mijndert Stuij</a>
+		
+		</p>
+		
+		<p style="box-sizing:border-box;margin:0px;padding:0px;border:0px;font-weight:500;font-style:normal;font-size:100%;line-height:1;font-family:inherit;text-align:left;float:right;">
+			
+			<span style="box-sizing:border-box;">Theme by <a href="http://www.andersnoren.se/" style="box-sizing:border-box;outline:none;color:rgb(119, 119, 119);text-decoration:none;transition:all 0.1s ease-in-out;-webkit-transition:all 0.1s ease-in-out;">Anders Noren</a> — </span><a style="box-sizing:border-box;outline:none;color:rgb(119, 119, 119);text-decoration:none;transition:all 0.3s ease-in-out;-webkit-transition:all 0.3s ease-in-out;" title="To the top">Up ↑</a>
+			
+		</p>
+		
+		<div style="box-sizing:border-box;clear:both;"></div>
+	
+	</div> 
+	
+</div> 
+
+
+
+
+
+
+
+
+
+
+</div></div></div><br/></div>
+</div></body></html> 
